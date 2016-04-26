@@ -62,6 +62,7 @@ public class Hero : MonoBehaviour {
         cam.GetComponent<EffectsManager>().RunDeath();
         Invoke("CameraOnKill", 1f);
         cam.PlayBump();
+        //cam.transform.Rotate(new Vector3(0f, 0f, -2f));
         BloodParticleEmitter.Play();
         
     

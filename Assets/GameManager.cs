@@ -17,7 +17,7 @@ public class GameManager : MonoBehaviour {
 
         do
         {
-            yield return new WaitForSeconds(2f);
+            yield return new WaitForSeconds(1.3f);
             int d = Random.Range(0,enemyDB.Length);
             Instantiate(enemyDB[d]);
         } while (true);
