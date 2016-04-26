@@ -33,6 +33,9 @@ public class Hero : MonoBehaviour {
 
     float jumptimer;
 
+    [SerializeField]
+    ParticleSystem BloodParticleEmitter;
+
     CameraHandler cam;
 
     SpriteRenderer sr;
@@ -58,6 +61,8 @@ public class Hero : MonoBehaviour {
         cam.followPlayer = true;
         cam.GetComponent<EffectsManager>().RunDeath();
         Invoke("CameraOnKill", 1f);
+        cam.PlayBump();
+        BloodParticleEmitter.Play();
         
     
     }
