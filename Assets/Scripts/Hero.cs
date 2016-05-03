@@ -91,48 +91,62 @@ public class Hero : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
+		#if UNITY_STANDALONE
+		if (Input.GetKeyDown(KeyCode.R))
+			Application.LoadLevel(Application.loadedLevel);
+		#endif
 
-        if (Input.GetKeyDown(KeyCode.R))
-            Application.LoadLevel(Application.loadedLevel);
+		if(status == heroStatus.idle){
+
+
+			idleAnimCount += Time.deltaTime;
+			if (idleAnimCount > idleAnimSpeed)
+			{
+				if(sr.sprite != s_idle2)
+					SetSprite(s_idle2);
+				else
+				{
+					SetSprite(s_idle1);
+				}
+				idleAnimCount = 0f;
+			}
+
+			#if UNITY_STANDALONE
+			if (Input.GetKey(KeyCode.Space)) {
+				SetSprite(s_chargejump);
+				status = heroStatus.chargejump;
+
+			}
+			#endif 
+			#if UNITY_ANDROID
+			if(Input.GetTouch(0).phase == TouchPhase.Began) {
+				SetSprite(s_chargejump);
+				status = heroStatus.chargejump;
+			}
+			#endif  
+		}         
         
-
-        if(status == heroStatus.idle){
-
-
-            idleAnimCount += Time.deltaTime;
-            if (idleAnimCount > idleAnimSpeed)
-            {
-                if(sr.sprite != s_idle2)
-                    SetSprite(s_idle2);
-                else
-                {
-                    SetSprite(s_idle1);
-                }
-                idleAnimCount = 0f;
-            }
-
-
-            if (Input.GetKey(KeyCode.Space)) {
-                SetSprite(s_chargejump);
-                status = heroStatus.chargejump;
         
-            }
-
-            
-        
-        }
 
 
         if (status == heroStatus.chargejump)
         {
-
+			#if UNITY_STANDALONE
             if (Input.GetKeyUp(KeyCode.Space)) {
                 jumptimer = 0f;
                 SetSprite(s_jumpUp);
                 status = heroStatus.jump;
                 //cam.PlayBump();
             }
-            
+			#endif
+			#if UNITY_ANDROID
+			if (Input.GetTouch(0).phase == TouchPhase.Ended) {
+				jumptimer = 0f;
+				SetSprite(s_jumpUp);
+				status = heroStatus.jump;
+				//cam.PlayBump();
+			}
+			#endif
         }
 
         if (status == heroStatus.jump)
