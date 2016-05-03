@@ -91,7 +91,7 @@ public class Hero : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-		#if UNITY_STANDALONE
+		#if UNITY_STANDALONE || UNITY_EDITOR
 		if (Input.GetKeyDown(KeyCode.R))
 			Application.LoadLevel(Application.loadedLevel);
 		#endif
@@ -111,18 +111,19 @@ public class Hero : MonoBehaviour {
 				idleAnimCount = 0f;
 			}
 
-			#if UNITY_STANDALONE
+			#if UNITY_STANDALONE || UNITY_EDITOR
 			if (Input.GetKey(KeyCode.Space)) {
 				SetSprite(s_chargejump);
 				status = heroStatus.chargejump;
 
 			}
-			#endif 
+			#else
 			#if UNITY_ANDROID
 			if(Input.GetTouch(0).phase == TouchPhase.Began) {
 				SetSprite(s_chargejump);
 				status = heroStatus.chargejump;
 			}
+			#endif
 			#endif  
 		}         
         
@@ -131,14 +132,14 @@ public class Hero : MonoBehaviour {
 
         if (status == heroStatus.chargejump)
         {
-			#if UNITY_STANDALONE
+			#if UNITY_STANDALONE || UNITY_EDITOR
             if (Input.GetKeyUp(KeyCode.Space)) {
                 jumptimer = 0f;
                 SetSprite(s_jumpUp);
                 status = heroStatus.jump;
                 //cam.PlayBump();
             }
-			#endif
+			#else
 			#if UNITY_ANDROID
 			if (Input.GetTouch(0).phase == TouchPhase.Ended) {
 				jumptimer = 0f;
@@ -146,6 +147,7 @@ public class Hero : MonoBehaviour {
 				status = heroStatus.jump;
 				//cam.PlayBump();
 			}
+			#endif
 			#endif
         }
 
