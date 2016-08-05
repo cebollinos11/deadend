@@ -12,9 +12,16 @@ public class Enemy : MonoBehaviour {
     protected ShadowTrail shadowTrail;
 
     bool hasKilledThePlayer;
+    bool hasGivenPoints;
 
     [SerializeField]
     Sprite hitSprite;
+
+    protected GameManager gm;
+
+    public float perfectRange;
+
+    
 
     protected SpriteRenderer sHitEffect;
 	// Use this for initialization
@@ -32,10 +39,29 @@ public class Enemy : MonoBehaviour {
         sHitEffect.transform.localPosition = Vector3.left * 0.1f ;
         sHitEffect.enabled = false;
         sHitEffect.material = Resources.Load("Materials/Flash") as Material;
+
+        gm = GameObject.FindObjectOfType<GameManager>();
         
 
 	}
 
+
+    void CheckForPerfect()
+    {
+
+        float ydist = player.transform.position.y - transform.position.y;
+
+        if (ydist < perfectRange && ydist >0.1f)
+        {
+            Debug.Log("Perfect!");
+            gm.CallPerfect();
+
+        }
+        else {
+            Debug.Log("no");
+        }
+
+    }
 
     protected IEnumerator Drop() {
         yield return new WaitForSeconds(0.3f);
@@ -57,7 +83,7 @@ public class Enemy : MonoBehaviour {
    
 
     protected void BasicAttack() {
-
+        CheckForPerfect();
         AudioManager.PlayClip(AudioManager.Instance.swing);
         sHitEffect.enabled = true;
         shadowTrail.Play();
@@ -71,6 +97,12 @@ public class Enemy : MonoBehaviour {
 	// Update is called once per frame
 	protected virtual void Update () {
 
+        if (!hasGivenPoints && transform.position.x < player.transform.position.x)
+        {
+            hasGivenPoints = true;
+            gm.IncreaseScore(1);
+        }
+
         if (hasAttacked)
             return;
 
@@ -82,6 +114,8 @@ public class Enemy : MonoBehaviour {
             BasicAttack();           
 
         }
+
+        
         
 	}
 

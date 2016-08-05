@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
-
+using UnityEngine.UI;
 public class GameManager : MonoBehaviour {
 
     [SerializeField]
@@ -8,12 +8,32 @@ public class GameManager : MonoBehaviour {
 
     bool sendEnemies;
 
+    public float spawnFreq;
+
+    public GameObject PerfectText;
+    
+    int score;
+    public Text ScoreUI;
+
 	// Use this for initialization
 	void Start () {
+        score = 0;
         Time.timeScale = 1f;
         sendEnemies = true;
         StartCoroutine(SpawnEnemies());
 	}
+
+    public void CallPerfect()
+    {
+        Instantiate(PerfectText);
+    }
+
+    public void IncreaseScore(int i)
+    {
+        score += i;
+        ScoreUI.text = score.ToString();
+
+    }
 
     void StopSendingEnemies() {
         sendEnemies = false;
@@ -40,8 +60,16 @@ public class GameManager : MonoBehaviour {
         {
             int d = Random.Range(0, enemyDB.Length);
             //d = 1;
-            Instantiate(enemyDB[d]);
-            yield return new WaitForSeconds(1.3f);
+            GameObject GO = (GameObject) Instantiate(enemyDB[d]);
+            float delay = 0f;
+
+            WaitEnemy we = GO.GetComponent<WaitEnemy>();
+
+            if (we)
+            {
+                delay += we.waitTime;
+            }
+            yield return new WaitForSeconds(spawnFreq+delay);
             
         } while (sendEnemies);
     }
