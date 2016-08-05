@@ -36,7 +36,8 @@ public class Hero : MonoBehaviour {
     [SerializeField]
     ParticleSystem BloodParticleEmitter;
 
-    CameraHandler cam;
+    [HideInInspector]
+    public CameraHandler cam;
     GameManager gm;
 
     SpriteRenderer sr;
