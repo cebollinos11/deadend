@@ -25,6 +25,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.823181, y: 0.065137915, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -40,7 +41,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyDB:
-  - {fileID: 175936, guid: 5d8268a2f77bb1c47a21b27f2e74525a, type: 2}
+  - {fileID: 11405026, guid: 5d8268a2f77bb1c47a21b27f2e74525a, type: 2}
   spawnFreq: 2
   PerfectText: {fileID: 128186, guid: de1a446339fcd7c44a6f52f89fbd5217, type: 2}
   ScoreUI: {fileID: 0}

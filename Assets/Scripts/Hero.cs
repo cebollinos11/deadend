@@ -3,16 +3,21 @@ using System.Collections;
 
 public class Hero : MonoBehaviour {
 
-    enum heroStatus { 
+    public enum HeroState { 
         idle,chargejump,jump,hitfloor,hit
     }
+
+    public float ChargeStart { get; set; }
+    [SerializeField]
+    private float minChargeTime = 0.1f;
+    public bool HasCharged { get; set; }
 
     public AnimationCurve jumpCurve;
 
     public float jumpSpeed;
     public float jumpHeight;
 
-    heroStatus status;
+    public HeroState state;
 
     public Sprite s_idle1;
     public Sprite s_idle2;
@@ -40,8 +45,11 @@ public class Hero : MonoBehaviour {
     GameManager gm;
 
     SpriteRenderer sr;
+    public event System.Action OnDeath;
+
+
     public bool CheckIfHit() {
-        return status == heroStatus.hit;
+        return state == HeroState.hit;
     }
     void SetSprite(Sprite sprite) {
         sr.sprite = sprite;
@@ -50,7 +58,7 @@ public class Hero : MonoBehaviour {
 	void Start () {
         gm = GameObject.FindObjectOfType<GameManager>();
         sr = GetComponent<SpriteRenderer>();
-        status = heroStatus.idle;
+        state = HeroState.idle;
         origPos = transform.position;
         cam = GameObject.FindObjectOfType<CameraHandler>();
         
@@ -60,7 +68,7 @@ public class Hero : MonoBehaviour {
     {
         //Time.timeScale = 0.5f;
         AudioManager.PlayClip(AudioManager.Instance.playerGetHit);
-        status=heroStatus.hit;
+        state=HeroState.hit;
         SetSprite(s_gethit);
         cam.followPlayer = true;
         //cam.GetComponent<EffectsManager>().RunDeath();
@@ -68,17 +76,12 @@ public class Hero : MonoBehaviour {
         cam.PlayBump();
         //cam.transform.Rotate(new Vector3(0f, 0f, -2f));
         BloodParticleEmitter.Play();
-        gm.PlayerGotKilled();
 
-        Invoke("RestartGame", 3f);
+        if(OnDeath != null) {
+            OnDeath();
+        }
         
-    
-    }
 
-    void RestartGame()
-    {
-
-        Application.LoadLevel(Application.loadedLevel);
     }
 
     void CameraOnKill() {
@@ -96,10 +99,9 @@ public class Hero : MonoBehaviour {
 			Application.LoadLevel(Application.loadedLevel);
 		#endif
 
-		if(status == heroStatus.idle){
+		if(state == HeroState.idle) {
 
-
-			idleAnimCount += Time.deltaTime;
+            idleAnimCount += Time.deltaTime;
 			if (idleAnimCount > idleAnimSpeed)
 			{
 				if(sr.sprite != s_idle2)
@@ -114,29 +116,38 @@ public class Hero : MonoBehaviour {
 			#if UNITY_STANDALONE || UNITY_EDITOR
 			if (Input.GetKey(KeyCode.Space)) {
 				SetSprite(s_chargejump);
-				status = heroStatus.chargejump;
+				state = HeroState.chargejump;
+                ChargeStart = Time.time;
 
-			}
-			#else
-			#if UNITY_ANDROID
+
+            }
+#else
+#if UNITY_ANDROID
 			if(Input.GetTouch(0).phase == TouchPhase.Began) {
 				SetSprite(s_chargejump);
 				status = heroStatus.chargejump;
+                chargeStart = Time.time;
 			}
-			#endif
-			#endif  
-		}         
-        
-        
+#endif
+#endif
+        }
 
 
-        if (status == heroStatus.chargejump)
+
+
+        if (state == HeroState.chargejump)
         {
+            // Update Charged flag
+            if(Time.time - ChargeStart > minChargeTime) {
+                HasCharged = true;
+            } else {
+                HasCharged = false;
+            }
 			#if UNITY_STANDALONE || UNITY_EDITOR
             if (Input.GetKeyUp(KeyCode.Space)) {
                 jumptimer = 0f;
                 SetSprite(s_jumpUp);
-                status = heroStatus.jump;
+                state = HeroState.jump;
                 //cam.PlayBump();
             }
 			#else
@@ -151,7 +162,7 @@ public class Hero : MonoBehaviour {
 			#endif
         }
 
-        if (status == heroStatus.jump)
+        if (state == HeroState.jump)
         {
             jumptimer += Time.deltaTime * jumpSpeed;
             float j = jumpCurve.Evaluate(jumptimer)*jumpHeight;
@@ -166,18 +177,19 @@ public class Hero : MonoBehaviour {
             if (jumptimer > 1.0f)
             {
                 SetSprite(s_hitFloor);
-                status = heroStatus.hitfloor;
+                state = HeroState.hitfloor;
                 hitFloorCount = 0f;
                 cam.PlayBump();
             }
         }
 
-        if (status == heroStatus.hitfloor)
+        if (state == HeroState.hitfloor)
         {
             hitFloorCount += Time.deltaTime;
             if (hitFloorCount > hitFloorDelay)
             {
-                status = heroStatus.idle;
+                state = HeroState.idle;
+                ChargeStart = Mathf.Infinity;
                 SetSprite(s_idle1);
                 idleAnimCount = 0.0f;
             }

@@ -1,10 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Enemy : MonoBehaviour {
-
-    
-    protected Transform player;
+public class Enemy : AbstractEnemy {
     protected Animator anim;
     protected bool hasAttacked;
     protected Rigidbody2D rb;
@@ -17,121 +14,100 @@ public class Enemy : MonoBehaviour {
     [SerializeField]
     Sprite hitSprite;
 
-    protected GameManager gm;
+    protected SpriteRenderer hitSpriteEffect;
 
-    public float perfectRange;
+    [SerializeField]
+    protected float perfectMin = 0;
+    [SerializeField]
+    protected float perfectMax = 0.5f;
 
-    
+    [SerializeField]
+    protected float moveSpeed = 1.0f;
 
-    protected SpriteRenderer sHitEffect;
-	// Use this for initialization
-	protected virtual void Start () {
-        player = GameObject.FindObjectOfType<Hero>().transform;
+
+    public override bool EvaluatePerformance() {
+        float yDist = Player.transform.position.y - transform.position.y;
+        if(yDist > perfectMin && yDist < perfectMax) {
+            return true;
+        }
+        return false;
+    }
+
+
+    // Use this for initialization
+    protected virtual void Start() {
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
-        shadowTrail = gameObject.AddComponent<ShadowTrail>();   
-    
+        shadowTrail = gameObject.AddComponent<ShadowTrail>();
+
         //instantiate hitSpriteEffect
-        sHitEffect = new GameObject().AddComponent<SpriteRenderer>();
-        
-        sHitEffect.sprite = Resources.Load<Sprite>("Sprites/hitEffect");
-        sHitEffect.transform.parent = transform;
-        sHitEffect.transform.localPosition = Vector3.left * 0.1f ;
-        sHitEffect.enabled = false;
-        sHitEffect.material = Resources.Load("Materials/Flash") as Material;
+        hitSpriteEffect = new GameObject().AddComponent<SpriteRenderer>();
 
-        gm = GameObject.FindObjectOfType<GameManager>();
-        
+        hitSpriteEffect.sprite = Resources.Load<Sprite>("Sprites/hitEffect");
+        hitSpriteEffect.transform.parent = transform;
+        hitSpriteEffect.transform.localPosition = Vector3.left * 0.1f;
+        hitSpriteEffect.enabled = false;
+        hitSpriteEffect.material = Resources.Load("Materials/Flash") as Material;
 
-	}
-
-
-    void CheckForPerfect()
-    {
-
-        float ydist = player.transform.position.y - transform.position.y;
-
-        if (ydist < perfectRange && ydist >0.1f)
-        {
-            Debug.Log("Perfect!");
-            gm.CallPerfect();
-
-        }
-        else {
-            Debug.Log("no");
-        }
 
     }
 
     protected IEnumerator Drop() {
         yield return new WaitForSeconds(0.3f);
-        if (!hasKilledThePlayer)
-        {
+        if (!hasKilledThePlayer) {
+            DeathEvent();
+
             anim.SetBool("Fall", true);
             rb.gravityScale = 1f;
             rb.drag = 0f;
-            
-        }
 
+        }
         shadowTrail.Stop();
-        sHitEffect.enabled = false;
-        
-        
-    
+        hitSpriteEffect.enabled = false;
     }
 
-   
+
 
     protected void BasicAttack() {
-        CheckForPerfect();
+        AttackEvent();
+
         AudioManager.PlayClip(AudioManager.Instance.swing);
-        sHitEffect.enabled = true;
+        hitSpriteEffect.enabled = true;
         shadowTrail.Play();
-        hasAttacked = true;
         anim.SetBool("Attack", true);
         rb.gravityScale = 0f;
         rb.AddForce(Vector2.left * 400f);
+        hasAttacked = true;
+
         StartCoroutine(Drop());
-    
+
     }
-	// Update is called once per frame
-	protected virtual void Update () {
+    // Update is called once per frame
+    protected virtual void Update() {
 
-        if (!hasGivenPoints && transform.position.x < player.transform.position.x)
-        {
-            hasGivenPoints = true;
-            gm.IncreaseScore(1);
+        if (hasAttacked) {
+            return;
         }
 
-        if (hasAttacked)
-            return;
+        transform.position += new Vector3(- moveSpeed * Time.deltaTime, 0f, 0f);
 
-        transform.position += new Vector3(- Time.deltaTime, 0f, 0f);
-
-        if ( transform.position.x - player.position.x  < 0.4f)
-        {
-
-            BasicAttack();           
-
+        if (transform.position.x - Player.transform.position.x < 0.4f) {
+            BasicAttack();            
         }
 
-        
-        
-	}
+    }
 
-    void OnCollisionEnter2D(Collision2D col)
-    {
-        if (!player)
+    void OnCollisionEnter2D(Collision2D col) {
+        if (Player == null)
             return;
-        if (col.gameObject == player.gameObject)
-        {
+        if (col.gameObject == Player.gameObject) {
             rb.velocity = Vector2.zero;
             rb.isKinematic = true;
             anim.SetBool("Attack", true);
             hasKilledThePlayer = true;
-        }     
-            
-            
-       
+        }
+
+
+
     }
 }

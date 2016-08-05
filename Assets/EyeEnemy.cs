@@ -16,7 +16,7 @@ public class EyeEnemy : Enemy {
         //base.Update();
 
         //aim to player
-        float angle = Mathf.Atan2(player.position.y - transform.position.y,player.position.x - transform.position.x);
+        float angle = Mathf.Atan2(Player.transform.position.y - transform.position.y, Player.transform.position.x - transform.position.x);
 
         transform.rotation = Quaternion.Euler(0f, 0f, angle*180/Mathf.PI);
 

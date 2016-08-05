@@ -2,10 +2,10 @@
 using System.Collections;
 
 public class WaitEnemy : Enemy {
+    public float WaitTime;
 
-    public float waitTime;
-    bool hasWaited;
-    bool waiting;
+    private float waitStart;
+    private bool waiting;
 
 	// Use this for initialization
     protected override void Start()
@@ -16,26 +16,33 @@ public class WaitEnemy : Enemy {
 	// Update is called once per frame
     protected override void Update()
     {
-        if(!waiting)
-            base.Update();
-
-        if (!hasWaited && transform.position.x - base.player.position.x < 0.5f)
-        {
-            hasWaited = true;
-            waiting = true;
-            anim.SetBool("Wait", true);
-            
-
+        if (hasAttacked) {
+            return;
         }
-
-        if (waiting)
-        {
-            waitTime -= Time.deltaTime;
-            if (waitTime < 0f)
-            {
+        // Only move forward if not waiting
+        if (!waiting) {
+            // Move foward until close enough to the enemy
+            transform.position += new Vector3(-moveSpeed * Time.deltaTime, 0f, 0f);
+            if (transform.position.x - Player.transform.position.x < 0.5f) {
+                waiting = true;
+                waitStart = Time.time;
+                anim.SetBool("Wait", true);
+            }
+        } else {
+            // Wait for waitTime seconds
+            if (Time.time - waitStart > WaitTime) {
                 waiting = false;
                 base.BasicAttack();
             }
         }
+    }
+
+    public override bool EvaluatePerformance() {
+        float yDist = Player.transform.position.y - transform.position.y;
+        if (yDist > perfectMin && yDist < perfectMax && 
+            (Player.state == Hero.HeroState.idle || !Player.HasCharged)) {
+            return true;
+        }
+        return false;
     }
 }
