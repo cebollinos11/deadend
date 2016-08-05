@@ -42,6 +42,7 @@ MonoBehaviour:
   mainSong: {fileID: 8300000, guid: 4853a04b2f6adcf4695a8f27397df278, type: 3}
   swing: {fileID: 8300000, guid: cdc1ac418d9949e4fa6f3ba1baf9f376, type: 3}
   playerGetHit: {fileID: 8300000, guid: fc7a9bd2ee7775142a5c4c1c9d8ed5d9, type: 3}
+  hammerDown: {fileID: 8300000, guid: f5196cf448060b947943dc176fd160f8, type: 3}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
