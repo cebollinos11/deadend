@@ -6,7 +6,8 @@ public class FatEnemy : Enemy  {
     public ParticleSystem HammerParticles;
     public float StompDistance;
     bool hasStomped;
-    [SerializeField]bool waiting;
+    bool waiting;
+
     protected override void Start()
     {
         
@@ -21,10 +22,8 @@ public class FatEnemy : Enemy  {
         Debug.Log("Called to stop");
     }
 
-    public void ResumeAttack()
-    {
+    public void ResumeAttack() {
         waiting = false;
-        Debug.Log("Called to resume");
         rb.AddForce(Vector2.left * 400f);
 
         base.BasicAttack();
@@ -32,39 +31,32 @@ public class FatEnemy : Enemy  {
 
     public void HammerDown()
     {
-
-        Hero hero = player.GetComponent<Hero>();
-        hero.cam.PlayBump();
+        Player.cam.PlayBump();
         HammerParticles.Play();
         AudioManager.PlayClip(AudioManager.Instance.hammerDown);
 
         //check player to stun
-        if(hero.transform.position.y < 0.1)
+        if(Player.transform.position.y < 0.1)
         {
-            hero.enabled = false;
-            
-           
-        }
-        
+            Player.enabled = false;          
+        }        
     }
 
     protected override void Update()
     {
+        if (hasAttacked) {
+            return;
+        }        
 
-        
-
-        if(!waiting)
-            base.Update();
-        //Debug.Log(StompDistance.ToString() + " vs " + transform.position.ToString());
-
-        if(!hasStomped && StompDistance >  transform.position.x)
+        if (!hasStomped)
         {
-            anim.SetTrigger("HammerDown");
-            Debug.Log("Call to stomp");
-            hasStomped = true;
-            
-
-        }
-        
+            if(transform.position.x < StompDistance) {
+                anim.SetTrigger("HammerDown");
+                Debug.Log("Call to stomp");
+                hasStomped = true;
+            } else {
+                transform.position += new Vector3(- moveSpeed * Time.deltaTime, 0f, 0f);
+            }            
+        }       
 	}
 }

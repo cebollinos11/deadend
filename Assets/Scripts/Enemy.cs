@@ -24,6 +24,8 @@ public class Enemy : AbstractEnemy {
     [SerializeField]
     protected float moveSpeed = 1.0f;
 
+    [SerializeField]
+    protected float dashForce = 400;
 
     public override bool EvaluatePerformance() {
         float yDist = Player.transform.position.y - transform.position.y;
@@ -76,7 +78,7 @@ public class Enemy : AbstractEnemy {
         shadowTrail.Play();
         anim.SetBool("Attack", true);
         rb.gravityScale = 0f;
-        rb.AddForce(Vector2.left * 400f);
+        rb.AddForce(Vector2.left * dashForce);
         hasAttacked = true;
 
         StartCoroutine(Drop());
