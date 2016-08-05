@@ -3,6 +3,7 @@ using System.Collections;
 
 public class FatEnemy : Enemy  {
 
+    public ParticleSystem HammerParticles;
     public float StompDistance;
     bool hasStomped;
     [SerializeField]bool waiting;
@@ -24,11 +25,27 @@ public class FatEnemy : Enemy  {
     {
         waiting = false;
         Debug.Log("Called to resume");
+        rb.AddForce(Vector2.left * 400f);
+
+        base.BasicAttack();
     }
 
     public void HammerDown()
     {
-        player.GetComponent<Hero>().cam.PlayBump();
+
+        Hero hero = player.GetComponent<Hero>();
+        hero.cam.PlayBump();
+        HammerParticles.Play();
+        AudioManager.PlayClip(AudioManager.Instance.hammerDown);
+
+        //check player to stun
+        if(hero.transform.position.y < 0.1)
+        {
+            hero.enabled = false;
+            
+           
+        }
+        
     }
 
     protected override void Update()

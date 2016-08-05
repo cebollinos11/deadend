@@ -13,6 +13,7 @@ public class AudioManager : Singleton<AudioManager>
     public AudioClip mainSong;
     public AudioClip swing;
     public AudioClip playerGetHit;
+    public AudioClip hammerDown;
 
     public static void PlayClip(AudioClip aClip)
     {

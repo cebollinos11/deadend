@@ -41,7 +41,7 @@ public class CameraHandler : MonoBehaviour {
     }
 
     IEnumerator ZoomToPosition(Vector2 targetPos) {
-
+        Camera.main.orthographicSize = 0.4f;
         float dist = 100f;
         do
         {
@@ -56,7 +56,7 @@ public class CameraHandler : MonoBehaviour {
 
 
         transform.position = new Vector3(targetPos.x, targetPos.y, -1);
-
+        
 
     
     }
