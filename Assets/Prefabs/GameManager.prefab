@@ -23,7 +23,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 155392}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.823181, y: 0.065137915, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -42,6 +42,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyDB:
   - {fileID: 11405026, guid: 5d8268a2f77bb1c47a21b27f2e74525a, type: 2}
+  - {fileID: 11499706, guid: c22e9b3a171d7294bb22e9a9bbf14a06, type: 2}
+  - {fileID: 11475128, guid: 0e8117877f74b6c48a5dbef1a721b8f6, type: 2}
+  - {fileID: 11431028, guid: 881cadf9dfafcba4a9e33a219fe4a951, type: 2}
   spawnFreq: 2
   PerfectText: {fileID: 128186, guid: de1a446339fcd7c44a6f52f89fbd5217, type: 2}
   ScoreUI: {fileID: 0}

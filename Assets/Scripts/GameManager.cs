@@ -44,7 +44,7 @@ public class GameManager : MonoBehaviour {
     private void HandlePlayerDeath() {
         StopSendingEnemies();
         StopAllEnemies();
-        Invoke("Restart", 3.0f);
+        StartCoroutine(Restart());
     }
 
     void StopSendingEnemies() {
@@ -58,7 +58,14 @@ public class GameManager : MonoBehaviour {
         }
     }
 
-    private void Restart() {
+    private IEnumerator Restart() {
+#if UNITY_STANDALONE || UNITY_EDITOR
+        yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.Space));
+#else
+#if UNITY_ANDROID
+         yield return new WaitUntil(() => Input.GetTouch(0).phase == TouchPhase.Began);
+#endif
+#endif
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 

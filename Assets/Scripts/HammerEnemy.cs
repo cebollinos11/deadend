@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class FatEnemy : Enemy  {
+public class HammerEnemy : Enemy  {
 
     public ParticleSystem HammerParticles;
     public float StompDistance;
