@@ -6,7 +6,6 @@ public class HammerEnemy : Enemy  {
     public ParticleSystem HammerParticles;
     public float StompDistance;
     bool hasStomped;
-    bool waiting;
 
     protected override void Start()
     {
@@ -22,15 +21,11 @@ public class HammerEnemy : Enemy  {
     public void Stop()
     {
         anim.ResetTrigger("HammerDown");
-        waiting = true;
 
         Debug.Log("Called to stop");
     }
 
     public void ResumeAttack() {
-        
-
-        waiting = false;
         rb.AddForce(Vector2.left * 400f);
 
         base.BasicAttack();
