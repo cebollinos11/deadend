@@ -20,8 +20,13 @@ public class GameManager : MonoBehaviour {
     int score;
     public Text ScoreUI;
 
+    [SerializeField]
+    Transform spawnPoint;
+
     // Use this for initialization
     void Start() {
+
+        
         score = 0;
         Time.timeScale = 1f;
         sendEnemies = true;
@@ -90,27 +95,75 @@ public class GameManager : MonoBehaviour {
         AudioManager.PlayClip(AudioManager.Instance.perfectClips[rnd]);
     }
 
+
+    float SendOneEnemy(AbstractEnemy enemyToSpawn,Vector3 position)
+    {
+
+        float delay = 0f;
+
+        AbstractEnemy enemy = Instantiate(enemyToSpawn, position, Quaternion.identity) as AbstractEnemy;
+        enemy.Player = player;
+        // Subscribe to events
+        enemy.OnAttack += new AbstractEnemy.EnemyAttackHandler(HandleEnemyAttack);
+        enemy.OnDeath += new AbstractEnemy.EnemyDeathHandler(HandleEnemyDeath);
+        // Wait enemies enforce delay on next enemy spawn to avoid unsolvable situation
+        
+        WaitEnemy we = enemy.gameObject.GetComponent<WaitEnemy>();
+        if (we)
+        {
+            delay += we.WaitTime;
+        }
+
+        HammerEnemy he = enemy.gameObject.GetComponent<HammerEnemy>();
+        if (he)
+        {
+            delay += 0.5f; //hard coded
+        }
+
+
+        return delay;
+
+    }
+
     IEnumerator SpawnEnemies() {
         while(sendEnemies) {
             // Select random enemy to instantiate
-            int d = Random.Range(0, enemyDB.Length);
-            AbstractEnemy enemy = Instantiate(enemyDB[d]);
-            enemy.Player = player;
-            // Subscribe to events
-            enemy.OnAttack += new AbstractEnemy.EnemyAttackHandler(HandleEnemyAttack);
-            enemy.OnDeath += new AbstractEnemy.EnemyDeathHandler(HandleEnemyDeath);
-            // Wait enemies enforce delay on next enemy spawn to avoid unsolvable situation
+
+            int numberOfEnemies = 1;
+
+
+
             float delay = 0f;
-            WaitEnemy we = enemy.gameObject.GetComponent<WaitEnemy>();
-            if (we) {
-                delay += we.WaitTime;
+            int d = Random.Range(0, enemyDB.Length);
+
+
+            //forze basic enemy at the beginning
+            if(Time.time<3f)
+            { d = 0; }
+
+            //10% chance of double enemies
+            if (d == 0 && Random.Range(0, 100) < 10)
+            {
+                numberOfEnemies = 2;
+            }
+            
+            //one enemy
+
+            if(numberOfEnemies == 1)
+            {
+                delay = SendOneEnemy(enemyDB[d], spawnPoint.position);
             }
 
-            HammerEnemy he = enemy.gameObject.GetComponent<HammerEnemy>();
-            if(he)
+            //multienemy
+            if (numberOfEnemies > 1)
             {
-                delay += 0.5f; //hard coded
+                for (int i = 0; i < numberOfEnemies; i++)
+                {
+                    delay += SendOneEnemy(enemyDB[d], spawnPoint.position+Vector3.right*i*0.16f);
+                }
+                
             }
+
 
             // Delay next spawn
             yield return new WaitForSeconds(spawnFreq + delay);

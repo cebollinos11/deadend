@@ -43,7 +43,7 @@ public class Player : MonoBehaviour {
     float jumptimer;
 
     [SerializeField]
-    ParticleSystem BloodParticleEmitter;
+    ParticleSystem BloodParticleEmitter,JumpParticles;
 
     [HideInInspector]
     public CameraHandler cam;
@@ -72,6 +72,8 @@ public class Player : MonoBehaviour {
         InputManager.OnButtonDown += new InputManager.InputHandler(HandleButtonDown);
         InputManager.OnButton += new InputManager.InputHandler(HandleButton);
         InputManager.OnButtonUp += new InputManager.InputHandler(HandleButtonUp);
+
+        //JumpParticles.transform.parent = null;
 
     }
 
@@ -172,6 +174,7 @@ public class Player : MonoBehaviour {
                 HasCharged = false;
             }
             if (InputManager.State == InputManager.InputState.ButtonUp) {
+                JumpParticles.Play();
                 jumptimer = 0f;
                 SetSprite(s_jumpUp);
                 state = PlayerState.Jump;
@@ -195,6 +198,8 @@ public class Player : MonoBehaviour {
             {
                 SetSprite(s_hitFloor);
                 state = PlayerState.HitFloor;
+                JumpParticles.Play();
+
                 hitFloorCount = 0f;
                 cam.PlayBump();
             }
