@@ -15,6 +15,8 @@ public class AudioManager : Singleton<AudioManager>
     public AudioClip playerGetHit;
     public AudioClip hammerDown;
 
+    public AudioClip[] perfectClips;
+
     public static void PlayClip(AudioClip aClip)
     {
         Instance.mainAudioSource.PlayOneShot(aClip);

@@ -85,6 +85,9 @@ public class GameManager : MonoBehaviour {
 
     private void DisplayPerfect() {
         Instantiate(PerfectText);
+        // Play random perfect sfx
+        int rnd = Random.Range(0, AudioManager.Instance.perfectClips.Length);
+        AudioManager.PlayClip(AudioManager.Instance.perfectClips[rnd]);
     }
 
     IEnumerator SpawnEnemies() {

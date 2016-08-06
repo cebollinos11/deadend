@@ -25,6 +25,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -43,6 +44,18 @@ MonoBehaviour:
   swing: {fileID: 8300000, guid: cdc1ac418d9949e4fa6f3ba1baf9f376, type: 3}
   playerGetHit: {fileID: 8300000, guid: fc7a9bd2ee7775142a5c4c1c9d8ed5d9, type: 3}
   hammerDown: {fileID: 8300000, guid: f5196cf448060b947943dc176fd160f8, type: 3}
+  perfectClips:
+  - {fileID: 8300000, guid: 8394d8b2b54832b449df29952a54b0f0, type: 3}
+  - {fileID: 8300000, guid: d15e175343b017644aa18bf5383fee3d, type: 3}
+  - {fileID: 8300000, guid: 9fda91d3ef9647a47bc02ff8e3a7460f, type: 3}
+  - {fileID: 8300000, guid: aab3f9a4df831ae40a46524deb85b93b, type: 3}
+  - {fileID: 8300000, guid: be17e2f54d531314d947f621b219ed94, type: 3}
+  - {fileID: 8300000, guid: ac7c9c96a745dd44a849ef922b746012, type: 3}
+  - {fileID: 8300000, guid: 11dfaa6ae221ab348840017bcd4026a0, type: 3}
+  - {fileID: 8300000, guid: c6ddedca4181a8348b5788c60492bab6, type: 3}
+  - {fileID: 8300000, guid: fa32bfacd16d95b449a485c58844b25c, type: 3}
+  - {fileID: 8300000, guid: da9ae53dead825e44a2f5fadedbfd81f, type: 3}
+  - {fileID: 8300000, guid: 76e693bf94474e8419b3328122881fef, type: 3}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

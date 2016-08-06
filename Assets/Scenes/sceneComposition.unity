@@ -445,6 +445,10 @@ Prefab:
       propertyPath: enemyDB.Array.size
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 11412168, guid: fbd5f5bf347b384479565c25b62c84c1, type: 2}
+      propertyPath: perfectClips.Array.size
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 444996, guid: fbd5f5bf347b384479565c25b62c84c1, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -484,27 +488,71 @@ Prefab:
     - target: {fileID: 11412168, guid: fbd5f5bf347b384479565c25b62c84c1, type: 2}
       propertyPath: enemyDB.Array.data[0]
       value: 
-      objectReference: {fileID: 11431028, guid: 881cadf9dfafcba4a9e33a219fe4a951,
+      objectReference: {fileID: 11405026, guid: 5d8268a2f77bb1c47a21b27f2e74525a,
         type: 2}
     - target: {fileID: 11412168, guid: fbd5f5bf347b384479565c25b62c84c1, type: 2}
       propertyPath: enemyDB.Array.data[1]
       value: 
-      objectReference: {fileID: 11405026, guid: 5d8268a2f77bb1c47a21b27f2e74525a,
+      objectReference: {fileID: 11499706, guid: c22e9b3a171d7294bb22e9a9bbf14a06,
         type: 2}
     - target: {fileID: 11412168, guid: fbd5f5bf347b384479565c25b62c84c1, type: 2}
       propertyPath: enemyDB.Array.data[2]
       value: 
-      objectReference: {fileID: 11499706, guid: c22e9b3a171d7294bb22e9a9bbf14a06,
+      objectReference: {fileID: 11475128, guid: 0e8117877f74b6c48a5dbef1a721b8f6,
         type: 2}
     - target: {fileID: 11412168, guid: fbd5f5bf347b384479565c25b62c84c1, type: 2}
       propertyPath: enemyDB.Array.data[3]
       value: 
-      objectReference: {fileID: 11475128, guid: 0e8117877f74b6c48a5dbef1a721b8f6,
+      objectReference: {fileID: 11431028, guid: 881cadf9dfafcba4a9e33a219fe4a951,
         type: 2}
     - target: {fileID: 11412168, guid: fbd5f5bf347b384479565c25b62c84c1, type: 2}
       propertyPath: spawnFreq
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 11412168, guid: fbd5f5bf347b384479565c25b62c84c1, type: 2}
+      propertyPath: perfectClips.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 743f9b10824068147a093a4b10f8dbc7, type: 3}
+    - target: {fileID: 11412168, guid: fbd5f5bf347b384479565c25b62c84c1, type: 2}
+      propertyPath: perfectClips.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: 3c34df300dce58a4d98d3fe20096abba, type: 3}
+    - target: {fileID: 11412168, guid: fbd5f5bf347b384479565c25b62c84c1, type: 2}
+      propertyPath: perfectClips.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: d983b64098c2d3749a344023b25d4fe8, type: 3}
+    - target: {fileID: 11412168, guid: fbd5f5bf347b384479565c25b62c84c1, type: 2}
+      propertyPath: perfectClips.Array.data[3]
+      value: 
+      objectReference: {fileID: 8300000, guid: 3e27441314394894588627b3e018ec9f, type: 3}
+    - target: {fileID: 11412168, guid: fbd5f5bf347b384479565c25b62c84c1, type: 2}
+      propertyPath: perfectClips.Array.data[4]
+      value: 
+      objectReference: {fileID: 8300000, guid: 9aca8c23b390c564e80fe010108b434c, type: 3}
+    - target: {fileID: 11412168, guid: fbd5f5bf347b384479565c25b62c84c1, type: 2}
+      propertyPath: perfectClips.Array.data[5]
+      value: 
+      objectReference: {fileID: 8300000, guid: 674f4a834b3a87d45a6256eca3cca20f, type: 3}
+    - target: {fileID: 11412168, guid: fbd5f5bf347b384479565c25b62c84c1, type: 2}
+      propertyPath: perfectClips.Array.data[6]
+      value: 
+      objectReference: {fileID: 8300000, guid: bbe42adb5c95b674d93abd7506391171, type: 3}
+    - target: {fileID: 11412168, guid: fbd5f5bf347b384479565c25b62c84c1, type: 2}
+      propertyPath: perfectClips.Array.data[7]
+      value: 
+      objectReference: {fileID: 8300000, guid: 79d9773e583f14a4785efb55394dcd39, type: 3}
+    - target: {fileID: 11412168, guid: fbd5f5bf347b384479565c25b62c84c1, type: 2}
+      propertyPath: perfectClips.Array.data[8]
+      value: 
+      objectReference: {fileID: 8300000, guid: 38d39cee70be28c4c841a5af681b607d, type: 3}
+    - target: {fileID: 11412168, guid: fbd5f5bf347b384479565c25b62c84c1, type: 2}
+      propertyPath: perfectClips.Array.data[9]
+      value: 
+      objectReference: {fileID: 8300000, guid: b688344fe8ca6ca4ca0f2db973122c31, type: 3}
+    - target: {fileID: 11412168, guid: fbd5f5bf347b384479565c25b62c84c1, type: 2}
+      propertyPath: perfectClips.Array.data[10]
+      value: 
+      objectReference: {fileID: 8300000, guid: 7aa0d56fb93da7b4caf211b4efd06d45, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: fbd5f5bf347b384479565c25b62c84c1, type: 2}
   m_IsPrefabParent: 0
