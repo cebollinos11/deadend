@@ -125,11 +125,41 @@ public class GameManager : MonoBehaviour {
     IEnumerator SpawnEnemies() {
         while(sendEnemies) {
             // Select random enemy to instantiate
-            
 
-            float delay;
+            int numberOfEnemies = 1;
+
+
+
+            float delay = 0f;
             int d = Random.Range(0, enemyDB.Length);
-            delay = SendOneEnemy(enemyDB[d], spawnPoint.position);
+
+
+            //forze basic enemy at the beginning
+            if(Time.time<3f)
+            { d = 0; }
+
+            //10% chance of double enemies
+            if (d == 0 && Random.Range(0, 100) < 10)
+            {
+                numberOfEnemies = 2;
+            }
+            
+            //one enemy
+
+            if(numberOfEnemies == 1)
+            {
+                delay = SendOneEnemy(enemyDB[d], spawnPoint.position);
+            }
+
+            //multienemy
+            if (numberOfEnemies > 1)
+            {
+                for (int i = 0; i < numberOfEnemies; i++)
+                {
+                    delay += SendOneEnemy(enemyDB[d], spawnPoint.position+Vector3.right*i*0.16f);
+                }
+                
+            }
 
 
             // Delay next spawn

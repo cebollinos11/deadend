@@ -279,8 +279,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 256268164}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.97608817, y: -1.385, z: 0}
-  m_LocalScale: {x: 6.9503803, y: 6.950377, z: 6.950377}
+  m_LocalPosition: {x: 1.64, y: -1.67, z: 0}
+  m_LocalScale: {x: 11.079579, y: 8.756902, z: 6.950377}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 1061548157}
@@ -338,14 +338,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 19851648, guid: 64545b729287e274c8a4dba6716dfc8c, type: 2}
-      propertyPath: InitialModule.startColor.maxColor.rgba
-      value: 4294967295
-      objectReference: {fileID: 0}
-    - target: {fileID: 11438098, guid: 64545b729287e274c8a4dba6716dfc8c, type: 2}
-      propertyPath: minChargeTime
-      value: 0.1
-      objectReference: {fileID: 0}
     - target: {fileID: 155402, guid: 64545b729287e274c8a4dba6716dfc8c, type: 2}
       propertyPath: m_Name
       value: Player
@@ -402,15 +394,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 2014106, guid: dc7f4586063be844dbc372073185d8e9, type: 2}
       propertyPath: m_BackGroundColor.r
-      value: 0.49264705
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2014106, guid: dc7f4586063be844dbc372073185d8e9, type: 2}
       propertyPath: m_BackGroundColor.g
-      value: 0.49264705
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2014106, guid: dc7f4586063be844dbc372073185d8e9, type: 2}
       propertyPath: m_BackGroundColor.b
-      value: 0.49264705
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2014106, guid: dc7f4586063be844dbc372073185d8e9, type: 2}
       propertyPath: orthographic size
@@ -426,6 +418,10 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 11412168, guid: fbd5f5bf347b384479565c25b62c84c1, type: 2}
+      propertyPath: enemyDB.Array.size
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 444996, guid: fbd5f5bf347b384479565c25b62c84c1, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -462,6 +458,30 @@ Prefab:
       propertyPath: ScoreUI
       value: 
       objectReference: {fileID: 2103927034}
+    - target: {fileID: 11412168, guid: fbd5f5bf347b384479565c25b62c84c1, type: 2}
+      propertyPath: enemyDB.Array.data[0]
+      value: 
+      objectReference: {fileID: 11405026, guid: 5d8268a2f77bb1c47a21b27f2e74525a,
+        type: 2}
+    - target: {fileID: 11412168, guid: fbd5f5bf347b384479565c25b62c84c1, type: 2}
+      propertyPath: enemyDB.Array.data[1]
+      value: 
+      objectReference: {fileID: 11475128, guid: 0e8117877f74b6c48a5dbef1a721b8f6,
+        type: 2}
+    - target: {fileID: 11412168, guid: fbd5f5bf347b384479565c25b62c84c1, type: 2}
+      propertyPath: enemyDB.Array.data[2]
+      value: 
+      objectReference: {fileID: 11499706, guid: c22e9b3a171d7294bb22e9a9bbf14a06,
+        type: 2}
+    - target: {fileID: 11412168, guid: fbd5f5bf347b384479565c25b62c84c1, type: 2}
+      propertyPath: enemyDB.Array.data[3]
+      value: 
+      objectReference: {fileID: 11431028, guid: 881cadf9dfafcba4a9e33a219fe4a951,
+        type: 2}
+    - target: {fileID: 11412168, guid: fbd5f5bf347b384479565c25b62c84c1, type: 2}
+      propertyPath: spawnFreq
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: fbd5f5bf347b384479565c25b62c84c1, type: 2}
   m_IsPrefabParent: 0
