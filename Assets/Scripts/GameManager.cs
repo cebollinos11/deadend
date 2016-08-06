@@ -2,6 +2,8 @@
 using System.Collections;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+
+[RequireComponent(typeof(InputManager))]
 public class GameManager : MonoBehaviour {
 
     [SerializeField]
@@ -29,6 +31,7 @@ public class GameManager : MonoBehaviour {
             return;
         }
         player.OnDeath += new System.Action(HandlePlayerDeath);
+
         StartCoroutine(SpawnEnemies());
     }
 
@@ -59,13 +62,7 @@ public class GameManager : MonoBehaviour {
     }
 
     private IEnumerator Restart() {
-#if UNITY_STANDALONE || UNITY_EDITOR
-        yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.Space));
-#else
-#if UNITY_ANDROID
-         yield return new WaitUntil(() => Input.GetTouch(0).phase == TouchPhase.Began);
-#endif
-#endif
+        yield return new WaitUntil(() => InputManager.State == InputManager.InputState.ButtonDown);
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 

@@ -52,6 +52,8 @@ public class Player : MonoBehaviour {
     SpriteRenderer sr;
     public event System.Action OnDeath;
 
+    
+
 
     public bool CheckIfHit() {
         return state == PlayerState.Hit;
@@ -66,8 +68,27 @@ public class Player : MonoBehaviour {
         state = PlayerState.Idle;
         origPos = transform.position;
         cam = GameObject.FindObjectOfType<CameraHandler>();
-        
-	}
+
+
+        // Subscribe to input events
+        InputManager.OnButtonDown += new InputManager.InputHandler(HandleButtonDown);
+        InputManager.OnButton += new InputManager.InputHandler(HandleButton);
+        InputManager.OnButtonUp += new InputManager.InputHandler(HandleButtonUp);
+
+    }
+
+
+    private void HandleButtonDown() {
+        Debug.Log("Button down");
+    }
+
+    private void HandleButton() {
+        Debug.Log("Button");
+    }
+
+    private void HandleButtonUp() {
+        Debug.Log("Button up");
+    }
 
     public void GetHit()
     {
@@ -99,7 +120,7 @@ public class Player : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-    #if UNITY_STANDALONE || UNITY_EDITOR
+        #if UNITY_STANDALONE || UNITY_EDITOR
         if (Input.GetKeyDown(KeyCode.R))
 			Application.LoadLevel(Application.loadedLevel);
 		#endif
@@ -118,23 +139,13 @@ public class Player : MonoBehaviour {
 				idleAnimCount = 0f;
 			}
 
-			#if UNITY_STANDALONE || UNITY_EDITOR
-			if (Input.GetKey(KeyCode.Space)) {
+
+			if (InputManager.State == InputManager.InputState.ButtonDown || 
+                InputManager.State == InputManager.InputState.Button) {
 				SetSprite(s_chargejump);
 				state = PlayerState.ChargeJump;
                 ChargeStart = Time.time;
-
-
             }
-#else
-#if UNITY_ANDROID
-			if(Input.GetTouch(0).phase == TouchPhase.Began || (Input.GetTouch(0).phase == TouchPhase.Stationary || Input.GetTouch(0).phase == TouchPhase.Moved)) {
-				SetSprite(s_chargejump);
-				state = PlayerState.ChargeJump;
-                ChargeStart = Time.time;
-			}
-#endif
-#endif
         }
 
 
@@ -148,23 +159,12 @@ public class Player : MonoBehaviour {
             } else {
                 HasCharged = false;
             }
-			#if UNITY_STANDALONE || UNITY_EDITOR
-            if (Input.GetKeyUp(KeyCode.Space)) {
+            if (InputManager.State == InputManager.InputState.ButtonUp) {
                 jumptimer = 0f;
                 SetSprite(s_jumpUp);
                 state = PlayerState.Jump;
                 //cam.PlayBump();
             }
-#else
-#if UNITY_ANDROID
-			if (Input.GetTouch(0).phase == TouchPhase.Ended) {
-				jumptimer = 0f;
-				SetSprite(s_jumpUp);
-				state = PlayerState.Jump;
-				//cam.PlayBump();
-			}
-#endif
-#endif
         }
 
         if (state == PlayerState.Jump)
