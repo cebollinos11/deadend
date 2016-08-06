@@ -128,7 +128,7 @@ MonoBehaviour:
   perfectMin: 0
   perfectMax: 0.5
   moveSpeed: 1
-  dashForce: 800
+  dashForce: 600
   HammerParticles: {fileID: 198000011920043804}
   StompDistance: 1.5
 --- !u!198 &19863178

@@ -101,6 +101,13 @@ public class GameManager : MonoBehaviour {
             if (we) {
                 delay += we.WaitTime;
             }
+
+            HammerEnemy he = enemy.gameObject.GetComponent<HammerEnemy>();
+            if(he)
+            {
+                delay += 0.5f; //hard coded
+            }
+
             // Delay next spawn
             yield return new WaitForSeconds(spawnFreq + delay);
         }
