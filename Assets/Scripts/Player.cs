@@ -77,6 +77,27 @@ public class Player : MonoBehaviour {
 
     }
 
+    IEnumerator StunShake()
+    {
+        float shakeLenght = 0.4f;
+        Vector3 originalposition = transform.position;
+
+        while (shakeLenght > 0)
+        {
+            shakeLenght -= Time.deltaTime;
+            transform.position = originalposition + new Vector3(Mathf.Sin(shakeLenght * 100) * 0.05f, 0, 0);
+            yield return new WaitForEndOfFrame();
+        }
+        transform.position = originalposition;
+    }
+
+    public void GetStunned()
+    {
+        Debug.Log("Player stunned");
+        sr.sprite = s_hitFloor;
+        StartCoroutine(StunShake());
+        this.enabled = false;
+    }
 
     private void HandleButtonDown() {
         Debug.Log("Button down");

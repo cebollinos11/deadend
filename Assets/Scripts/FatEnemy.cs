@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class HammerEnemy : Enemy  {
+public class FatEnemy : Enemy  {
 
     public ParticleSystem HammerParticles;
     public float StompDistance;
@@ -24,7 +24,6 @@ public class HammerEnemy : Enemy  {
         anim.ResetTrigger("HammerDown");
         waiting = true;
 
-        Debug.Log("Called to stop");
     }
 
     public void ResumeAttack() {
@@ -47,7 +46,8 @@ public class HammerEnemy : Enemy  {
         //check player to stun
         if(Player.transform.position.y < 0.1)
         {
-            Player.GetStunned();
+
+            Player.GetStunned();    
         }        
     }
 
@@ -61,7 +61,6 @@ public class HammerEnemy : Enemy  {
         {
             if(transform.position.x < StompDistance) {
                 anim.SetTrigger("HammerDown");
-                Debug.Log("Call to stomp");
                 hasStomped = true;
             } else {
                 transform.position += new Vector3(- moveSpeed * Time.deltaTime, 0f, 0f);
