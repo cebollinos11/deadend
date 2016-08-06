@@ -47,7 +47,6 @@ public class Player : MonoBehaviour {
 
     [HideInInspector]
     public CameraHandler cam;
-    GameManager gm;
 
     SpriteRenderer sr;
     public event System.Action OnDeath;
@@ -63,7 +62,6 @@ public class Player : MonoBehaviour {
     }
 	// Use this for initialization
 	void Start () {
-        gm = GameObject.FindObjectOfType<GameManager>();
         sr = GetComponent<SpriteRenderer>();
         state = PlayerState.Idle;
         origPos = transform.position;
@@ -142,14 +140,7 @@ public class Player : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-
-        #if UNITY_STANDALONE || UNITY_EDITOR
-        if (Input.GetKeyDown(KeyCode.R))
-			Application.LoadLevel(Application.loadedLevel);
-		#endif
-
 		if(state == PlayerState.Idle) {
-
             idleAnimCount += Time.deltaTime;
 			if (idleAnimCount > idleAnimSpeed)
 			{

@@ -62,6 +62,7 @@ public class GameManager : MonoBehaviour {
     }
 
     private IEnumerator Restart() {
+        yield return new WaitForSeconds(1.0f);
         yield return new WaitUntil(() => InputManager.State == InputManager.InputState.ButtonDown);
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }

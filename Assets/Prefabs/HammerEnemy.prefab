@@ -14,7 +14,7 @@ GameObject:
   - 50: {fileID: 5014556}
   - 114: {fileID: 11431028}
   m_Layer: 0
-  m_Name: FatEnemy
+  m_Name: HammerEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

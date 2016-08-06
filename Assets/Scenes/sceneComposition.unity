@@ -402,15 +402,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 2014106, guid: dc7f4586063be844dbc372073185d8e9, type: 2}
       propertyPath: m_BackGroundColor.r
-      value: 0
+      value: 0.49264705
       objectReference: {fileID: 0}
     - target: {fileID: 2014106, guid: dc7f4586063be844dbc372073185d8e9, type: 2}
       propertyPath: m_BackGroundColor.g
-      value: 0
+      value: 0.49264705
       objectReference: {fileID: 0}
     - target: {fileID: 2014106, guid: dc7f4586063be844dbc372073185d8e9, type: 2}
       propertyPath: m_BackGroundColor.b
-      value: 0
+      value: 0.49264705
       objectReference: {fileID: 0}
     - target: {fileID: 2014106, guid: dc7f4586063be844dbc372073185d8e9, type: 2}
       propertyPath: orthographic size

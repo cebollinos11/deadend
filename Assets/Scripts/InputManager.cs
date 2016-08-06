@@ -21,24 +21,28 @@ public class InputManager : MonoBehaviour {
 
     void Update () {
         if (Input.touchSupported) {
-            if (Input.GetTouch(0).phase == TouchPhase.Began) {
-                if (OnButtonDown != null) {
-                    OnButtonDown();
+            if (Input.touchCount > 0) {
+                if (Input.GetTouch(0).phase == TouchPhase.Began) {
+                    if (OnButtonDown != null) {
+                        OnButtonDown();
+                    }
+                    State = InputState.ButtonDown;
+                } else if (Input.GetTouch(0).phase == TouchPhase.Moved || Input.GetTouch(0).phase == TouchPhase.Stationary) {
+                    if (OnButtonDown != null) {
+                        OnButton();
+                    }
+                    State = InputState.Button;
+                } else if (Input.GetTouch(0).phase == TouchPhase.Ended) {
+                    if (OnButtonDown != null) {
+                        OnButtonUp();
+                    }
+                    State = InputState.ButtonUp;
+                } else {
+                    State = InputState.Default;
                 }
-                State = InputState.ButtonDown;
-            } else if (Input.GetTouch(0).phase == TouchPhase.Moved || Input.GetTouch(0).phase == TouchPhase.Stationary) {
-                if (OnButtonDown != null) {
-                    OnButton();
-                }
-                State = InputState.Button;
-            } else if (Input.GetTouch(0).phase == TouchPhase.Ended) {
-                if (OnButtonDown != null) {
-                    OnButtonUp();
-                }
-                State = InputState.ButtonUp;
             } else {
                 State = InputState.Default;
-            }
+            }       
         } else {
             if (Input.GetKeyDown(KeyCode.Space)) {
                 if (OnButtonDown != null) {
