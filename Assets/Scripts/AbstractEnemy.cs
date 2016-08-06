@@ -21,5 +21,5 @@ public abstract class AbstractEnemy : MonoBehaviour {
     public delegate bool PerformanceEvaluator();
     public abstract bool EvaluatePerformance();
 
-    public Hero Player { get; set; }
+    public Player Player { get; set; }
 }

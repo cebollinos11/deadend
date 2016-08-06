@@ -13,7 +13,7 @@ public class GameManager : MonoBehaviour {
 
     public GameObject PerfectText;
 
-    private Hero player;
+    private Player player;
 
     int score;
     public Text ScoreUI;
@@ -23,7 +23,7 @@ public class GameManager : MonoBehaviour {
         score = 0;
         Time.timeScale = 1f;
         sendEnemies = true;
-        player = FindObjectOfType<Hero>();
+        player = FindObjectOfType<Player>();
         if (player == null) {
             Debug.LogError("No Hero found in scene!");
             return;

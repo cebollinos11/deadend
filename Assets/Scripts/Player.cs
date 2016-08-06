@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Hero : MonoBehaviour {
+public class Player : MonoBehaviour {
 
     public enum HeroState { 
         idle,chargejump,jump,hitfloor,hit
