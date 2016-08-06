@@ -4,10 +4,10 @@ using System.Collections;
 public class RigidBodyHandler : MonoBehaviour {
 
     Rigidbody2D rb;
-    Hero hero;
+    Player hero;
 	// Use this for initialization
 	void Start () {
-        hero = GetComponent<Hero>();
+        hero = GetComponent<Player>();
         rb = GetComponent<Rigidbody2D>();
         rb.isKinematic = true;
 	}

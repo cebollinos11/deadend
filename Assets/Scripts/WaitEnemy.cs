@@ -40,7 +40,7 @@ public class WaitEnemy : Enemy {
     public override bool EvaluatePerformance() {
         float yDist = Player.transform.position.y - transform.position.y;
         if (yDist > perfectMin && yDist < perfectMax && 
-            (Player.state == Hero.HeroState.idle || !Player.HasCharged)) {
+            (Player.state == Player.HeroState.idle || !Player.HasCharged)) {
             return true;
         }
         return false;
