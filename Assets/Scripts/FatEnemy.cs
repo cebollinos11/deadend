@@ -14,6 +14,11 @@ public class FatEnemy : Enemy  {
         base.Start();
     }
 
+    void HideHitEffect()
+    {
+        hitSpriteEffect.enabled = false;
+    }
+
     public void Stop()
     {
         anim.ResetTrigger("HammerDown");
@@ -23,6 +28,8 @@ public class FatEnemy : Enemy  {
     }
 
     public void ResumeAttack() {
+        
+
         waiting = false;
         rb.AddForce(Vector2.left * 400f);
 
@@ -31,6 +38,8 @@ public class FatEnemy : Enemy  {
 
     public void HammerDown()
     {
+        hitSpriteEffect.enabled = true;
+        Invoke("HideHitEffect", 0.1f);
         Player.cam.PlayBump();
         HammerParticles.Play();
         AudioManager.PlayClip(AudioManager.Instance.hammerDown);
