@@ -124,4 +124,4 @@ Material:
       second: {r: 0, g: 0, b: 0, a: 1}
     - first:
         name: _MaskColor
-      second: {r: 0.909804, g: 0.09019608, b: 0.34509805, a: 1}
+      second: {r: 1, g: 1, b: 1, a: 1}
