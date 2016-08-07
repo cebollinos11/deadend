@@ -133,8 +133,20 @@ public class Player : MonoBehaviour {
 
     void CameraOnKill() {
 
-        Vector3 target = GameObject.FindObjectOfType<Enemy>().transform.position;
-        cam.zoomTo(target);
+        //Vector3 target = GameObject.FindObjectOfType<Enemy>().transform.position;
+
+        Enemy[] enemiesOnScreen = GameObject.FindObjectsOfType<Enemy>();
+        for (int i = 0; i < enemiesOnScreen.Length; i++)
+        {
+            if (enemiesOnScreen[i].hasKilledThePlayer)
+            {
+                Debug.Log(enemiesOnScreen[i].transform.name);
+                cam.zoomTo(enemiesOnScreen[i].transform.position);
+            }
+                
+        }
+        
+        
 
     }
 	

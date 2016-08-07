@@ -47,6 +47,8 @@ public class CameraHandler : MonoBehaviour {
         {
             yield return new WaitForEndOfFrame();
 
+            
+
             transform.position = Vector2.Lerp(transform.position,targetPos,0.1f);
             dist = Vector2.Distance(transform.position, targetPos);
 
@@ -61,7 +63,7 @@ public class CameraHandler : MonoBehaviour {
     
     }
     public void zoomTo(Vector2 targetPos) {
-
+        Debug.Log("Going to "+targetPos.ToString());
         followPlayer = false;
         StartCoroutine(ZoomToPosition(targetPos));
     }
@@ -69,10 +71,7 @@ public class CameraHandler : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-        if(Input.GetKeyDown(KeyCode.K)){
-            zoomTo(new Vector2(1, 1));
-        }
-
+        
 
         if (followPlayer)
         {

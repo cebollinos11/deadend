@@ -6,11 +6,13 @@ public class Enemy : AbstractEnemy {
     protected bool hasAttacked;
     protected Rigidbody2D rb;
 
+    bool hasDied;
+
     protected ShadowTrail shadowTrail;
 
-    bool hasKilledThePlayer;
+    [HideInInspector] public bool hasKilledThePlayer;
     bool hasGivenPoints;
-
+   
     [SerializeField]
     Sprite hitSprite;
 
@@ -55,10 +57,11 @@ public class Enemy : AbstractEnemy {
     }
 
     protected IEnumerator Drop() {
+        
         yield return new WaitForSeconds(0.3f);
         if (!hasKilledThePlayer) {
             DeathEvent();
-
+            hasDied = true;
             anim.SetBool("Fall", true);
             rb.gravityScale = 1f;
             rb.drag = 0f;
@@ -100,13 +103,14 @@ public class Enemy : AbstractEnemy {
     }
 
     void OnCollisionEnter2D(Collision2D col) {
-        if (Player == null)
+        if (Player == null || hasDied )
             return;
         if (col.gameObject == Player.gameObject) {
             rb.velocity = Vector2.zero;
             rb.isKinematic = true;
             anim.SetBool("Attack", true);
             hasKilledThePlayer = true;
+            Debug.Log(gameObject.name + " has killed the player with hasDied = "+hasDied.ToString());
         }
 
 
