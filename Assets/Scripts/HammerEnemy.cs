@@ -1,16 +1,42 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class HammerEnemy : Enemy  {
+public class HammerEnemy : Enemy {
 
     public ParticleSystem HammerParticles;
     public float StompDistance;
     bool hasStomped;
 
+    private static string waitAnimName = "EnemyStomp";
+
+    private float? waitTime;
+    public float WaitTime {
+        get {
+            if(!waitTime.HasValue) {
+                waitTime = 0;
+                AnimationClip waitAnim = null;
+                anim = GetComponent<Animator>();
+                foreach (AnimationClip clip in anim.runtimeAnimatorController.animationClips) {
+                    if (clip.name == waitAnimName) {
+                        waitAnim = clip;
+                        break;
+                    }
+                }
+                if (waitAnim != null) {
+                    waitTime = waitAnim.length;
+                    Debug.Log(WaitTime);
+                }
+            }
+            return waitTime.Value;
+        }
+        set {
+            waitTime = value;
+        }
+    }
+
     protected override void Start()
-    {
-        
-        base.Start();
+    {        
+        base.Start();       
     }
 
     void HideHitEffect()

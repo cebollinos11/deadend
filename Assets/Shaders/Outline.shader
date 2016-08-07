@@ -43,7 +43,7 @@
 
 					
 					float _OutlineSize;
-					float4 _OutlineColor;
+					fixed4 _OutlineColor;
 					
 					v2f vert(appdata_t IN)
 					{

@@ -26,6 +26,10 @@ public class GameManager : MonoBehaviour {
     [SerializeField]
     private AudioClip perfectClip;
 
+    [SerializeField]
+    [Range(0, 100)]
+    private int groupSpawnChance = 10;
+
     // Use this for initialization
     void Start() {
 
@@ -40,7 +44,7 @@ public class GameManager : MonoBehaviour {
         }
         player.OnDeath += new System.Action(HandlePlayerDeath);
 
-        StartCoroutine(SpawnEnemies());
+        StartCoroutine(Game());
     }
 
     public void CallPerfect() {
@@ -127,6 +131,8 @@ public class GameManager : MonoBehaviour {
 
     }
 
+    private 
+
     IEnumerator SpawnEnemies() {
         while(sendEnemies) {
             // Select random enemy to instantiate
@@ -144,7 +150,7 @@ public class GameManager : MonoBehaviour {
             { d = 0; }
 
             //10% chance of double enemies
-            if (d == 0 && Random.Range(0, 100) < 10)
+            if (d == 0 && Random.Range(0, 100) < groupSpawnChance)
             {
                 numberOfEnemies = 2;
             }
@@ -170,5 +176,31 @@ public class GameManager : MonoBehaviour {
             // Delay next spawn
             yield return new WaitForSeconds(spawnFreq + delay);
         }
+    }
+
+
+    IEnumerator Game() {
+        while (sendEnemies) {
+            // Select what enemy to spawn
+            int index = Random.Range(0, enemyDB.Length);
+            yield return StartCoroutine(SpawnSingle(enemyDB[index]));
+            yield return new WaitForSeconds(spawnFreq);
+        }
+    }
+
+    IEnumerator SpawnSingle(AbstractEnemy enemyPrefab) {        
+        // Create enemy from prefab
+        AbstractEnemy enemy = Instantiate(enemyPrefab, spawnPoint.position, Quaternion.identity) as AbstractEnemy;
+        enemy.Player = player;
+        // Subscribe to events
+        enemy.OnAttack += new AbstractEnemy.EnemyAttackHandler(HandleEnemyAttack);
+        enemy.OnDeath += new AbstractEnemy.EnemyDeathHandler(HandleEnemyDeath);
+        // Special delays
+        if(enemy.GetType() == System.Type.GetType("WaitEnemy")) {
+            yield return new WaitForSeconds(((WaitEnemy)enemy).WaitTime);
+        } else if(enemy.GetType() == System.Type.GetType("HammerEnemy")) {
+            yield return new WaitForSeconds(((HammerEnemy)enemy).WaitTime);
+        }
+
     }
 }

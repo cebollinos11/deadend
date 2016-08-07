@@ -27,7 +27,6 @@ public class JumpEnemy : Enemy {
 
     public override bool EvaluatePerformance() {
         float chargedTime = Mathf.Abs(Time.time - Player.ChargeStart);
-        Debug.Log("Charged time " + chargedTime);
         if (Player.state == Player.PlayerState.ChargeJump && chargedTime < maxChargeForPerfect) {
             return true;
         }
