@@ -66,6 +66,9 @@ public class CameraHandler : MonoBehaviour {
             Camera.main.orthographicSize = Mathf.Lerp(originalOr, targetOrthoSize,zoomcurve.Evaluate( t / ZoomTime));
             transform.position = new Vector3(transform.position.x, transform.position.y, -1);
         }
+
+        GameObject.FindObjectOfType<Canvas>().GetComponent<Animator>().SetTrigger("GoCinematographic");
+        //GetComponent<Animator>().SetTrigger("GoCinematographic");
         
            
 

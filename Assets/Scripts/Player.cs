@@ -119,7 +119,7 @@ public class Player : MonoBehaviour {
         SetSprite(s_gethit);
         cam.followPlayer = false;
         //cam.GetComponent<EffectsManager>().RunDeath();
-        Invoke("CameraOnKill", 1f);
+        Invoke("CameraOnKill", 0.1f);
         cam.PlayBump();
         //cam.transform.Rotate(new Vector3(0f, 0f, -2f));
         BloodParticleEmitter.Play();
@@ -142,8 +142,8 @@ public class Player : MonoBehaviour {
             {
                 Debug.Log(enemiesOnScreen[i].transform.name);
                 cam.zoomTo(enemiesOnScreen[i].transform.position);
-                //cam.GetComponent<Animator>().SetTrigger("GoCinematographic");
-                GameObject.FindObjectOfType<Canvas>().GetComponent<Animator>().SetTrigger("GoCinematographic");
+                
+                //GameObject.FindObjectOfType<Canvas>().GetComponent<Animator>().SetTrigger("GoCinematographic");
             }
                 
         }
