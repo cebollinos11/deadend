@@ -142,6 +142,8 @@ public class Player : MonoBehaviour {
             {
                 Debug.Log(enemiesOnScreen[i].transform.name);
                 cam.zoomTo(enemiesOnScreen[i].transform.position);
+                //cam.GetComponent<Animator>().SetTrigger("GoCinematographic");
+                GameObject.FindObjectOfType<Canvas>().GetComponent<Animator>().SetTrigger("GoCinematographic");
             }
                 
         }
