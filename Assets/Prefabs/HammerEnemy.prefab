@@ -130,7 +130,7 @@ MonoBehaviour:
   moveSpeed: 1
   dashForce: 600
   HammerParticles: {fileID: 198000011920043804}
-  StompDistance: 1.5
+  StompDistance: 1
 --- !u!198 &19863178
 ParticleSystem:
   m_ObjectHideFlags: 1
