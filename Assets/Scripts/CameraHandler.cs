@@ -11,6 +11,11 @@ public class CameraHandler : MonoBehaviour {
     public float bumpAmplitude;
     Vector3 origPos;
 
+    [SerializeField]
+    AnimationCurve zoomcurve;
+    [SerializeField]
+    float ZoomTime;
+
 	// Use this for initialization
 	void Start () {
         origPos = transform.position;
@@ -41,23 +46,33 @@ public class CameraHandler : MonoBehaviour {
     }
 
     IEnumerator ZoomToPosition(Vector2 targetPos) {
-        Camera.main.orthographicSize = 0.4f;
-        float dist = 100f;
-        do
+
+        float originalOr = Camera.main.orthographicSize;
+        float targetOrthoSize = 0.4f;
+        Vector2 origPos = transform.position;
+        
+       // Camera.main.orthographicSize = 0.4f;
+
+        float t = 0f;
+        
+        while(t<ZoomTime)
         {
-            yield return new WaitForEndOfFrame();
+            t += Time.deltaTime;
+             yield return new WaitForEndOfFrame();
 
             
 
-            transform.position = Vector2.Lerp(transform.position,targetPos,0.1f);
-            dist = Vector2.Distance(transform.position, targetPos);
-
+            transform.position = Vector2.Lerp(origPos,targetPos, zoomcurve.Evaluate( t/ZoomTime));
+            Camera.main.orthographicSize = Mathf.Lerp(originalOr, targetOrthoSize,zoomcurve.Evaluate( t / ZoomTime));
             transform.position = new Vector3(transform.position.x, transform.position.y, -1);
+        }
+        
+           
 
-        } while (dist > 0.01);
+        
 
 
-        transform.position = new Vector3(targetPos.x, targetPos.y, -1);
+        //transform.position = new Vector3(targetPos.x, targetPos.y, -1);
         
 
     

@@ -43,7 +43,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.4852941, g: 0.4852941, b: 0.4852941, a: 0.019607844}
+  m_BackGroundColor: {r: 0.6544118, g: 0.6544118, b: 0.6544118, a: 0.019607844}
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
@@ -122,6 +122,28 @@ MonoBehaviour:
     m_RotationOrder: 0
   bumpTime: 0.1
   bumpAmplitude: 0.05
+  zoomcurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 0.8421395
+      value: 0.18354225
+      inSlope: 1.4345348
+      outSlope: 1.4345348
+      tangentMode: 0
+    - time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  ZoomTime: 1
 --- !u!114 &11493582
 MonoBehaviour:
   m_ObjectHideFlags: 1

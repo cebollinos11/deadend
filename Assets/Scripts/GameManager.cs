@@ -134,6 +134,7 @@ public class GameManager : MonoBehaviour {
             } else {
                 // TODO
                 Debug.Log("You just beat this level!");
+                
                 break;
             }           
         }

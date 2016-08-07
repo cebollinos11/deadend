@@ -22,4 +22,8 @@ public abstract class AbstractEnemy : MonoBehaviour {
     public abstract bool EvaluatePerformance();
 
     public Player Player { get; set; }
+
+    private void OnTriggerEnter2D(Collider2D col){
+        Destroy(gameObject);
+    }
 }

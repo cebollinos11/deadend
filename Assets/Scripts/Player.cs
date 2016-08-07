@@ -117,7 +117,7 @@ public class Player : MonoBehaviour {
         AudioManager.PlayClip(AudioManager.Instance.playerGetHit);
         state=PlayerState.Hit;
         SetSprite(s_gethit);
-        cam.followPlayer = true;
+        cam.followPlayer = false;
         //cam.GetComponent<EffectsManager>().RunDeath();
         Invoke("CameraOnKill", 1f);
         cam.PlayBump();
