@@ -28,11 +28,15 @@ public class GameManager : MonoBehaviour {
     [SerializeField]
     private float startDelay = 1;
 
+    [Header("Generated Level Parameters")]
+
     [SerializeField]
     private bool generateInfiniteLevel = false;
     [SerializeField]
     private float outerDelayIfGenerated;
 
+
+     [Header("Custom Level Parameters")]
     [SerializeField]
     private EnemyGroup[] level;
     
