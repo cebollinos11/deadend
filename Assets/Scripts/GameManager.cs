@@ -23,6 +23,9 @@ public class GameManager : MonoBehaviour {
     [SerializeField]
     Transform spawnPoint;
 
+    [SerializeField]
+    private AudioClip perfectClip;
+
     // Use this for initialization
     void Start() {
 
@@ -90,9 +93,8 @@ public class GameManager : MonoBehaviour {
 
     private void DisplayPerfect() {
         Instantiate(PerfectText);
-        // Play random perfect sfx
-        int rnd = Random.Range(0, AudioManager.Instance.perfectClips.Length);
-        AudioManager.PlayClip(AudioManager.Instance.perfectClips[rnd]);
+        // Play perfect sfx
+        AudioManager.PlayClip(perfectClip);
     }
 
 
