@@ -1,0 +1,248 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1000010351271312}
+  m_IsPrefabParent: 1
+--- !u!1 &1000010351271312
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 4000012599061534}
+  - 114: {fileID: 114000013952101950}
+  m_Layer: 0
+  m_Name: EnemyGroupTypeManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4000012599061534
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000010351271312}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+--- !u!114 &114000013952101950
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000010351271312}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a88fd89fa2eab2d418e0d4762d02ba7e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Types:
+  - Name: N
+    IsRandom: 0
+    AmountIfRandom: 0
+    Enemies:
+    - {fileID: 11405026, guid: 5d8268a2f77bb1c47a21b27f2e74525a, type: 2}
+    InnerDelay: 0
+  - Name: J
+    IsRandom: 0
+    AmountIfRandom: 0
+    Enemies:
+    - {fileID: 11499706, guid: c22e9b3a171d7294bb22e9a9bbf14a06, type: 2}
+    InnerDelay: 0
+  - Name: W
+    IsRandom: 0
+    AmountIfRandom: 0
+    Enemies:
+    - {fileID: 11475128, guid: 0e8117877f74b6c48a5dbef1a721b8f6, type: 2}
+    InnerDelay: 0
+  - Name: H
+    IsRandom: 0
+    AmountIfRandom: 0
+    Enemies:
+    - {fileID: 11431028, guid: 881cadf9dfafcba4a9e33a219fe4a951, type: 2}
+    InnerDelay: 0
+  - Name: NN
+    IsRandom: 0
+    AmountIfRandom: 0
+    Enemies:
+    - {fileID: 11405026, guid: 5d8268a2f77bb1c47a21b27f2e74525a, type: 2}
+    - {fileID: 11405026, guid: 5d8268a2f77bb1c47a21b27f2e74525a, type: 2}
+    InnerDelay: 0.15
+  - Name: NNN
+    IsRandom: 0
+    AmountIfRandom: 0
+    Enemies:
+    - {fileID: 11405026, guid: 5d8268a2f77bb1c47a21b27f2e74525a, type: 2}
+    - {fileID: 11405026, guid: 5d8268a2f77bb1c47a21b27f2e74525a, type: 2}
+    - {fileID: 11405026, guid: 5d8268a2f77bb1c47a21b27f2e74525a, type: 2}
+    InnerDelay: 0.15
+  - Name: JNN
+    IsRandom: 0
+    AmountIfRandom: 0
+    Enemies:
+    - {fileID: 11499706, guid: c22e9b3a171d7294bb22e9a9bbf14a06, type: 2}
+    - {fileID: 11405026, guid: 5d8268a2f77bb1c47a21b27f2e74525a, type: 2}
+    - {fileID: 11405026, guid: 5d8268a2f77bb1c47a21b27f2e74525a, type: 2}
+    InnerDelay: 0.15
+  - Name: NNH
+    IsRandom: 0
+    AmountIfRandom: 0
+    Enemies:
+    - {fileID: 11405026, guid: 5d8268a2f77bb1c47a21b27f2e74525a, type: 2}
+    - {fileID: 11405026, guid: 5d8268a2f77bb1c47a21b27f2e74525a, type: 2}
+    - {fileID: 11431028, guid: 881cadf9dfafcba4a9e33a219fe4a951, type: 2}
+    InnerDelay: 0.15
+  - Name: HNH
+    IsRandom: 0
+    AmountIfRandom: 0
+    Enemies:
+    - {fileID: 11431028, guid: 881cadf9dfafcba4a9e33a219fe4a951, type: 2}
+    - {fileID: 11405026, guid: 5d8268a2f77bb1c47a21b27f2e74525a, type: 2}
+    - {fileID: 11431028, guid: 881cadf9dfafcba4a9e33a219fe4a951, type: 2}
+    InnerDelay: 0.15
+  - Name: NH
+    IsRandom: 0
+    AmountIfRandom: 0
+    Enemies:
+    - {fileID: 11405026, guid: 5d8268a2f77bb1c47a21b27f2e74525a, type: 2}
+    - {fileID: 11431028, guid: 881cadf9dfafcba4a9e33a219fe4a951, type: 2}
+    InnerDelay: 0.15
+  - Name: JNNH
+    IsRandom: 0
+    AmountIfRandom: 0
+    Enemies:
+    - {fileID: 11499706, guid: c22e9b3a171d7294bb22e9a9bbf14a06, type: 2}
+    - {fileID: 11405026, guid: 5d8268a2f77bb1c47a21b27f2e74525a, type: 2}
+    - {fileID: 11405026, guid: 5d8268a2f77bb1c47a21b27f2e74525a, type: 2}
+    - {fileID: 11431028, guid: 881cadf9dfafcba4a9e33a219fe4a951, type: 2}
+    InnerDelay: 0.15
+  - Name: WW
+    IsRandom: 0
+    AmountIfRandom: 0
+    Enemies:
+    - {fileID: 11475128, guid: 0e8117877f74b6c48a5dbef1a721b8f6, type: 2}
+    - {fileID: 11475128, guid: 0e8117877f74b6c48a5dbef1a721b8f6, type: 2}
+    InnerDelay: 0.15
+  - Name: WWW
+    IsRandom: 0
+    AmountIfRandom: 0
+    Enemies:
+    - {fileID: 11475128, guid: 0e8117877f74b6c48a5dbef1a721b8f6, type: 2}
+    - {fileID: 11475128, guid: 0e8117877f74b6c48a5dbef1a721b8f6, type: 2}
+    - {fileID: 11475128, guid: 0e8117877f74b6c48a5dbef1a721b8f6, type: 2}
+    InnerDelay: 0.15
+  - Name: WWWW
+    IsRandom: 0
+    AmountIfRandom: 0
+    Enemies:
+    - {fileID: 11475128, guid: 0e8117877f74b6c48a5dbef1a721b8f6, type: 2}
+    - {fileID: 11475128, guid: 0e8117877f74b6c48a5dbef1a721b8f6, type: 2}
+    - {fileID: 11475128, guid: 0e8117877f74b6c48a5dbef1a721b8f6, type: 2}
+    - {fileID: 11475128, guid: 0e8117877f74b6c48a5dbef1a721b8f6, type: 2}
+    InnerDelay: 0.15
+  - Name: WWWWW
+    IsRandom: 0
+    AmountIfRandom: 0
+    Enemies:
+    - {fileID: 11475128, guid: 0e8117877f74b6c48a5dbef1a721b8f6, type: 2}
+    - {fileID: 11475128, guid: 0e8117877f74b6c48a5dbef1a721b8f6, type: 2}
+    - {fileID: 11475128, guid: 0e8117877f74b6c48a5dbef1a721b8f6, type: 2}
+    - {fileID: 11475128, guid: 0e8117877f74b6c48a5dbef1a721b8f6, type: 2}
+    - {fileID: 11475128, guid: 0e8117877f74b6c48a5dbef1a721b8f6, type: 2}
+    InnerDelay: 0.15
+  - Name: WH
+    IsRandom: 0
+    AmountIfRandom: 0
+    Enemies:
+    - {fileID: 11475128, guid: 0e8117877f74b6c48a5dbef1a721b8f6, type: 2}
+    - {fileID: 11431028, guid: 881cadf9dfafcba4a9e33a219fe4a951, type: 2}
+    InnerDelay: 0.15
+  - Name: WWH
+    IsRandom: 0
+    AmountIfRandom: 0
+    Enemies:
+    - {fileID: 11475128, guid: 0e8117877f74b6c48a5dbef1a721b8f6, type: 2}
+    - {fileID: 11475128, guid: 0e8117877f74b6c48a5dbef1a721b8f6, type: 2}
+    - {fileID: 11431028, guid: 881cadf9dfafcba4a9e33a219fe4a951, type: 2}
+    InnerDelay: 0.15
+  - Name: WWWH
+    IsRandom: 0
+    AmountIfRandom: 0
+    Enemies:
+    - {fileID: 11475128, guid: 0e8117877f74b6c48a5dbef1a721b8f6, type: 2}
+    - {fileID: 11475128, guid: 0e8117877f74b6c48a5dbef1a721b8f6, type: 2}
+    - {fileID: 11475128, guid: 0e8117877f74b6c48a5dbef1a721b8f6, type: 2}
+    - {fileID: 11431028, guid: 881cadf9dfafcba4a9e33a219fe4a951, type: 2}
+    InnerDelay: 0.15
+  - Name: WWWWWH
+    IsRandom: 0
+    AmountIfRandom: 0
+    Enemies:
+    - {fileID: 11475128, guid: 0e8117877f74b6c48a5dbef1a721b8f6, type: 2}
+    - {fileID: 11475128, guid: 0e8117877f74b6c48a5dbef1a721b8f6, type: 2}
+    - {fileID: 11475128, guid: 0e8117877f74b6c48a5dbef1a721b8f6, type: 2}
+    - {fileID: 11475128, guid: 0e8117877f74b6c48a5dbef1a721b8f6, type: 2}
+    - {fileID: 11431028, guid: 881cadf9dfafcba4a9e33a219fe4a951, type: 2}
+    InnerDelay: 0.15
+  - Name: NJ
+    IsRandom: 0
+    AmountIfRandom: 0
+    Enemies:
+    - {fileID: 11405026, guid: 5d8268a2f77bb1c47a21b27f2e74525a, type: 2}
+    - {fileID: 11499706, guid: c22e9b3a171d7294bb22e9a9bbf14a06, type: 2}
+    InnerDelay: 0.15
+  - Name: NJN
+    IsRandom: 0
+    AmountIfRandom: 0
+    Enemies:
+    - {fileID: 11405026, guid: 5d8268a2f77bb1c47a21b27f2e74525a, type: 2}
+    - {fileID: 11499706, guid: c22e9b3a171d7294bb22e9a9bbf14a06, type: 2}
+    - {fileID: 11405026, guid: 5d8268a2f77bb1c47a21b27f2e74525a, type: 2}
+    InnerDelay: 0.15
+  - Name: WJN
+    IsRandom: 0
+    AmountIfRandom: 0
+    Enemies:
+    - {fileID: 11475128, guid: 0e8117877f74b6c48a5dbef1a721b8f6, type: 2}
+    - {fileID: 11499706, guid: c22e9b3a171d7294bb22e9a9bbf14a06, type: 2}
+    - {fileID: 11405026, guid: 5d8268a2f77bb1c47a21b27f2e74525a, type: 2}
+    InnerDelay: 0.15
+  - Name: R(NJ)
+    IsRandom: 1
+    AmountIfRandom: 1
+    Enemies:
+    - {fileID: 11405026, guid: 5d8268a2f77bb1c47a21b27f2e74525a, type: 2}
+    - {fileID: 11499706, guid: c22e9b3a171d7294bb22e9a9bbf14a06, type: 2}
+    InnerDelay: 0.15
+  - Name: R(NJW)
+    IsRandom: 1
+    AmountIfRandom: 1
+    Enemies:
+    - {fileID: 11405026, guid: 5d8268a2f77bb1c47a21b27f2e74525a, type: 2}
+    - {fileID: 11499706, guid: c22e9b3a171d7294bb22e9a9bbf14a06, type: 2}
+    - {fileID: 11475128, guid: 0e8117877f74b6c48a5dbef1a721b8f6, type: 2}
+    InnerDelay: 0.15
+  - Name: R(NJWH)
+    IsRandom: 1
+    AmountIfRandom: 1
+    Enemies:
+    - {fileID: 11405026, guid: 5d8268a2f77bb1c47a21b27f2e74525a, type: 2}
+    - {fileID: 11499706, guid: c22e9b3a171d7294bb22e9a9bbf14a06, type: 2}
+    - {fileID: 11475128, guid: 0e8117877f74b6c48a5dbef1a721b8f6, type: 2}
+    - {fileID: 11431028, guid: 881cadf9dfafcba4a9e33a219fe4a951, type: 2}
+    InnerDelay: 0.15

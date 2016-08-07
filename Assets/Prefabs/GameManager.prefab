@@ -53,6 +53,13 @@ MonoBehaviour:
   spawnPoint: {fileID: 4000011207018968}
   perfectClip: {fileID: 8300000, guid: 702e9938079ef574d9dead3e6c8e2b50, type: 3}
   groupSpawnChance: 10
+  enemyGroupTypes:
+  - Name: NNN
+    Enemies:
+    - {fileID: 11405026, guid: 5d8268a2f77bb1c47a21b27f2e74525a, type: 2}
+    - {fileID: 11405026, guid: 5d8268a2f77bb1c47a21b27f2e74525a, type: 2}
+    - {fileID: 11405026, guid: 5d8268a2f77bb1c47a21b27f2e74525a, type: 2}
+    InnerDelay: 0.2
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

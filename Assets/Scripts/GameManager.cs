@@ -1,48 +1,59 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(InputManager))]
 public class GameManager : MonoBehaviour {
+    // Game state variables
+    private bool sendEnemies;
+    private int score;
 
+    // References
     [SerializeField]
-    AbstractEnemy[] enemyDB;
-
-    bool sendEnemies;
-
-    public float spawnFreq;
-
-    public GameObject PerfectText;
-
-    private Player player;
-
-    int score;
-    public Text ScoreUI;
-
+    private GameObject PerfectText;
+    [SerializeField]
+    private Text ScoreUI;
     [SerializeField]
     Transform spawnPoint;
-
     [SerializeField]
     private AudioClip perfectClip;
 
+
+    private Player player;
+    private EnemyGroupTypeManager groupTypes;
+
+
     [SerializeField]
-    [Range(0, 100)]
-    private int groupSpawnChance = 10;
+    private float startDelay = 1;
+
+    [SerializeField]
+    private bool generateInfiniteLevel = false;
+    [SerializeField]
+    private float outerDelayIfGenerated;
+
+    [SerializeField]
+    private EnemyGroup[] level;
+    
 
     // Use this for initialization
-    void Start() {
-
-        
+    void Start() {        
         score = 0;
         Time.timeScale = 1f;
         sendEnemies = true;
         player = FindObjectOfType<Player>();
         if (player == null) {
-            Debug.LogError("No Hero found in scene!");
+            Debug.LogError("No Player found in scene!");
             return;
         }
         player.OnDeath += new System.Action(HandlePlayerDeath);
+
+        groupTypes = FindObjectOfType<EnemyGroupTypeManager>();
+        if (groupTypes == null) {
+            Debug.LogError("No EnemyGroupTypeManager found in scene!");
+            return;
+        }
 
         StartCoroutine(Game());
     }
@@ -62,7 +73,7 @@ public class GameManager : MonoBehaviour {
         StartCoroutine(Restart());
     }
 
-    void StopSendingEnemies() {
+    private void StopSendingEnemies() {
         sendEnemies = false;
     }
 
@@ -101,94 +112,30 @@ public class GameManager : MonoBehaviour {
         AudioManager.PlayClip(perfectClip);
     }
 
-
-    float SendOneEnemy(AbstractEnemy enemyToSpawn,Vector3 position)
-    {
-
-        float delay = 0f;
-
-        AbstractEnemy enemy = Instantiate(enemyToSpawn, position, Quaternion.identity) as AbstractEnemy;
-        enemy.Player = player;
-        // Subscribe to events
-        enemy.OnAttack += new AbstractEnemy.EnemyAttackHandler(HandleEnemyAttack);
-        enemy.OnDeath += new AbstractEnemy.EnemyDeathHandler(HandleEnemyDeath);
-        // Wait enemies enforce delay on next enemy spawn to avoid unsolvable situation
-        
-        WaitEnemy we = enemy.gameObject.GetComponent<WaitEnemy>();
-        if (we)
-        {
-            delay += we.WaitTime;
-        }
-
-        HammerEnemy he = enemy.gameObject.GetComponent<HammerEnemy>();
-        if (he)
-        {
-            delay += 0.5f; //hard coded
-        }
-
-
-        return delay;
-
-    }
-
-    private 
-
-    IEnumerator SpawnEnemies() {
-        while(sendEnemies) {
-            // Select random enemy to instantiate
-
-            int numberOfEnemies = 1;
-
-
-
-            float delay = 0f;
-            int d = Random.Range(0, enemyDB.Length);
-
-
-            //forze basic enemy at the beginning
-            if(Time.time<3f)
-            { d = 0; }
-
-            //10% chance of double enemies
-            if (d == 0 && Random.Range(0, 100) < groupSpawnChance)
-            {
-                numberOfEnemies = 2;
-            }
-            
-            //one enemy
-
-            if(numberOfEnemies == 1)
-            {
-                delay = SendOneEnemy(enemyDB[d], spawnPoint.position);
-            }
-
-            //multienemy
-            if (numberOfEnemies > 1)
-            {
-                for (int i = 0; i < numberOfEnemies; i++)
-                {
-                    delay += SendOneEnemy(enemyDB[d], spawnPoint.position+Vector3.right*i*0.16f);
-                }
-                
-            }
-
-
-            // Delay next spawn
-            yield return new WaitForSeconds(spawnFreq + delay);
-        }
-    }
-
-
-    IEnumerator Game() {
+    private IEnumerator Game() {
+        yield return new WaitForSeconds(startDelay);
+        int levelIndex = 0;
         while (sendEnemies) {
-            // Select what enemy to spawn
-            int index = Random.Range(0, enemyDB.Length);
-            yield return StartCoroutine(SpawnSingle(enemyDB[index]));
-            yield return new WaitForSeconds(spawnFreq);
+            if(generateInfiniteLevel) {
+                // Select what group to spawn at random
+                int index = Random.Range(0, groupTypes.Types.Length);
+                yield return StartCoroutine(SpawnGroup(groupTypes.Types[index]));
+                yield return new WaitForSeconds(outerDelayIfGenerated);
+            } else if(levelIndex < level.Length) {
+                // Spawn group next group in level
+                EnemyGroupType groupType = groupTypes.GetGroupByName(level[levelIndex].Name);
+                yield return StartCoroutine(SpawnGroup(groupType));
+                yield return new WaitForSeconds(level[levelIndex].DelayAfter);
+                ++levelIndex;
+            } else {
+                // TODO
+                Debug.Log("You just beat this level!");
+                break;
+            }           
         }
     }
 
-    IEnumerator SpawnSingle(AbstractEnemy enemyPrefab) {        
+    private IEnumerator SpawnSingle(AbstractEnemy enemyPrefab) {        
         // Create enemy from prefab
         AbstractEnemy enemy = Instantiate(enemyPrefab, spawnPoint.position, Quaternion.identity) as AbstractEnemy;
         enemy.Player = player;
@@ -201,6 +148,24 @@ public class GameManager : MonoBehaviour {
         } else if(enemy.GetType() == System.Type.GetType("HammerEnemy")) {
             yield return new WaitForSeconds(((HammerEnemy)enemy).WaitTime);
         }
+    }
 
+
+    private IEnumerator SpawnGroup(EnemyGroupType group) {
+        if(group.IsRandom) {
+            for(int n = 0; n < group.AmountIfRandom; ++n) {
+                // Select on of the group at random
+                int index = Random.Range(0, group.Enemies.Length);
+                yield return StartCoroutine(SpawnSingle(group.Enemies[index]));
+                yield return new WaitForSeconds(group.InnerDelay);
+            }            
+        } else {
+            // Spawn in sequence
+            foreach (AbstractEnemy e in group.Enemies) {
+                yield return StartCoroutine(SpawnSingle(e));
+                yield return new WaitForSeconds(group.InnerDelay);
+            }
+        }
+            
     }
 }
