@@ -18,6 +18,7 @@ public class JumpEnemy : Enemy {
 
         transform.position += new Vector3(-moveSpeed * Time.deltaTime, 0f, 0f);
 
+        Debug.Log(Player);
         if (!hasJumped && transform.position.x - Player.transform.position.x < 0.5f) {
             rb.AddForce(new Vector2(0, 1f) * 400f);
             hasJumped = true;
