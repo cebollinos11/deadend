@@ -398,15 +398,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 2014106, guid: dc7f4586063be844dbc372073185d8e9, type: 2}
       propertyPath: m_BackGroundColor.r
-      value: 0
+      value: 0.4852941
       objectReference: {fileID: 0}
     - target: {fileID: 2014106, guid: dc7f4586063be844dbc372073185d8e9, type: 2}
       propertyPath: m_BackGroundColor.g
-      value: 0
+      value: 0.4852941
       objectReference: {fileID: 0}
     - target: {fileID: 2014106, guid: dc7f4586063be844dbc372073185d8e9, type: 2}
       propertyPath: m_BackGroundColor.b
-      value: 0
+      value: 0.4852941
       objectReference: {fileID: 0}
     - target: {fileID: 2014106, guid: dc7f4586063be844dbc372073185d8e9, type: 2}
       propertyPath: orthographic size
@@ -458,6 +458,10 @@ Prefab:
       propertyPath: ScoreUI
       value: 
       objectReference: {fileID: 2103927034}
+    - target: {fileID: 11412168, guid: fbd5f5bf347b384479565c25b62c84c1, type: 2}
+      propertyPath: perfectClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 702e9938079ef574d9dead3e6c8e2b50, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: fbd5f5bf347b384479565c25b62c84c1, type: 2}
   m_IsPrefabParent: 0

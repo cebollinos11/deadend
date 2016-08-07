@@ -100,15 +100,15 @@ public class Player : MonoBehaviour {
     }
 
     private void HandleButtonDown() {
-        Debug.Log("Button down");
+        //Debug.Log("Button down");
     }
 
     private void HandleButton() {
-        Debug.Log("Button");
+        //Debug.Log("Button");
     }
 
     private void HandleButtonUp() {
-        Debug.Log("Button up");
+        //Debug.Log("Button up");
     }
 
     public void GetHit()
