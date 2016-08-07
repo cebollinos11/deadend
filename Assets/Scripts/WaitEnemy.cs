@@ -7,6 +7,9 @@ public class WaitEnemy : Enemy {
     private float waitStart;
     private bool waiting;
 
+    [SerializeField]
+    AudioClip chargesound;
+
 	// Use this for initialization
     protected override void Start()
     {
@@ -27,6 +30,8 @@ public class WaitEnemy : Enemy {
                 waiting = true;
                 waitStart = Time.time;
                 anim.SetBool("Wait", true);
+                AudioManager.PlayClip(chargesound);
+                GetComponent<SpriteRenderer>().color = Color.white;
             }
         } else {
             // Wait for waitTime seconds

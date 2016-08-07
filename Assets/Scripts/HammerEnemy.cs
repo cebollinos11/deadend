@@ -40,7 +40,7 @@ public class HammerEnemy : Enemy  {
         AudioManager.PlayClip(AudioManager.Instance.hammerDown);
 
         //check player to stun
-        if(Player.transform.position.y < 0.1)
+        if(Player.transform.position.y < 0.007)
         {
             Player.GetStunned();
         }        

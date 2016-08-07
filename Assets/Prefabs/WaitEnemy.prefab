@@ -98,6 +98,7 @@ MonoBehaviour:
   moveSpeed: 1
   dashForce: 400
   WaitTime: 0.5
+  chargesound: {fileID: 8300000, guid: 456750cef51cbb245b5a9f591f69e202, type: 3}
 --- !u!212 &21210798
 SpriteRenderer:
   m_ObjectHideFlags: 1
