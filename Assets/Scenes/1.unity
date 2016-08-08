@@ -303,7 +303,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 11412168, guid: fbd5f5bf347b384479565c25b62c84c1, type: 2}
       propertyPath: level.Array.size
-      value: 5
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 11412168, guid: fbd5f5bf347b384479565c25b62c84c1, type: 2}
       propertyPath: enemyGroupTypes.Array.size
@@ -442,7 +442,7 @@ Prefab:
         type: 2}
     - target: {fileID: 11412168, guid: fbd5f5bf347b384479565c25b62c84c1, type: 2}
       propertyPath: level.Array.data[0].Name
-      value: J
+      value: N
       objectReference: {fileID: 0}
     - target: {fileID: 11412168, guid: fbd5f5bf347b384479565c25b62c84c1, type: 2}
       propertyPath: level.Array.data[0].DelayAfter
@@ -486,6 +486,46 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11412168, guid: fbd5f5bf347b384479565c25b62c84c1, type: 2}
       propertyPath: outerDelayIfGenerated
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 11412168, guid: fbd5f5bf347b384479565c25b62c84c1, type: 2}
+      propertyPath: level.Array.data[5].Name
+      value: W
+      objectReference: {fileID: 0}
+    - target: {fileID: 11412168, guid: fbd5f5bf347b384479565c25b62c84c1, type: 2}
+      propertyPath: level.Array.data[5].DelayAfter
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 11412168, guid: fbd5f5bf347b384479565c25b62c84c1, type: 2}
+      propertyPath: level.Array.data[6].Name
+      value: W
+      objectReference: {fileID: 0}
+    - target: {fileID: 11412168, guid: fbd5f5bf347b384479565c25b62c84c1, type: 2}
+      propertyPath: level.Array.data[6].DelayAfter
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 11412168, guid: fbd5f5bf347b384479565c25b62c84c1, type: 2}
+      propertyPath: level.Array.data[7].Name
+      value: J
+      objectReference: {fileID: 0}
+    - target: {fileID: 11412168, guid: fbd5f5bf347b384479565c25b62c84c1, type: 2}
+      propertyPath: level.Array.data[7].DelayAfter
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 11412168, guid: fbd5f5bf347b384479565c25b62c84c1, type: 2}
+      propertyPath: level.Array.data[8].Name
+      value: H
+      objectReference: {fileID: 0}
+    - target: {fileID: 11412168, guid: fbd5f5bf347b384479565c25b62c84c1, type: 2}
+      propertyPath: level.Array.data[8].DelayAfter
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 11412168, guid: fbd5f5bf347b384479565c25b62c84c1, type: 2}
+      propertyPath: level.Array.data[9].Name
+      value: N
+      objectReference: {fileID: 0}
+    - target: {fileID: 11412168, guid: fbd5f5bf347b384479565c25b62c84c1, type: 2}
+      propertyPath: level.Array.data[9].DelayAfter
       value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
