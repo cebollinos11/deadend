@@ -140,7 +140,7 @@ public class Player : MonoBehaviour {
         {
             if (enemiesOnScreen[i].hasKilledThePlayer)
             {
-                Debug.Log(enemiesOnScreen[i].transform.name);
+                //Debug.Log(enemiesOnScreen[i].transform.name);
                 cam.zoomTo(enemiesOnScreen[i].transform.position);
                 
                 //GameObject.FindObjectOfType<Canvas>().GetComponent<Animator>().SetTrigger("GoCinematographic");

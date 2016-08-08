@@ -39,10 +39,13 @@ public class GameManager : MonoBehaviour {
      [Header("Custom Level Parameters")]
     [SerializeField]
     private EnemyGroup[] level;
-    
+
+    [HideInInspector]public CameraHandler camHandler;
 
     // Use this for initialization
-    void Start() {        
+    void Start() {
+
+        camHandler = GameObject.FindObjectOfType<CameraHandler>();
         score = 0;
         Time.timeScale = 1f;
         sendEnemies = true;
@@ -116,6 +119,30 @@ public class GameManager : MonoBehaviour {
         AudioManager.PlayClip(perfectClip);
     }
 
+    void LoadNextLevel()
+    {
+        Scene currentScene = SceneManager.GetActiveScene();
+        //current scene number as int
+        int i = int.Parse(currentScene.name);
+        //load next scene
+        SceneManager.LoadScene((i + 1).ToString());
+    }
+
+    IEnumerator LevelTransitionRoutine()
+    {
+
+        float delayStartTransition = 1f;
+        float delayLoadNextScene = 3f;
+        //zoom in to player
+        yield return new WaitForSeconds(delayStartTransition);
+        camHandler.zoomTo(player.transform.position);
+
+        //load next Scene
+        yield return new WaitForSeconds(delayLoadNextScene);
+        LoadNextLevel();
+        
+    }
+
     private IEnumerator Game() {
         yield return new WaitForSeconds(startDelay);
         int levelIndex = 0;
@@ -134,6 +161,7 @@ public class GameManager : MonoBehaviour {
             } else {
                 // TODO
                 Debug.Log("You just beat this level!");
+                StartCoroutine(LevelTransitionRoutine());
                 
                 
                 break;
