@@ -42,24 +42,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35bcb5ce3a3986b4c87627df98f7d0ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyDB:
-  - {fileID: 11405026, guid: 5d8268a2f77bb1c47a21b27f2e74525a, type: 2}
-  - {fileID: 11499706, guid: c22e9b3a171d7294bb22e9a9bbf14a06, type: 2}
-  - {fileID: 11475128, guid: 0e8117877f74b6c48a5dbef1a721b8f6, type: 2}
-  - {fileID: 11431028, guid: 881cadf9dfafcba4a9e33a219fe4a951, type: 2}
-  spawnFreq: 1
   PerfectText: {fileID: 128186, guid: de1a446339fcd7c44a6f52f89fbd5217, type: 2}
   ScoreUI: {fileID: 0}
   spawnPoint: {fileID: 4000011207018968}
   perfectClip: {fileID: 8300000, guid: 702e9938079ef574d9dead3e6c8e2b50, type: 3}
-  groupSpawnChance: 10
-  enemyGroupTypes:
-  - Name: NNN
-    Enemies:
-    - {fileID: 11405026, guid: 5d8268a2f77bb1c47a21b27f2e74525a, type: 2}
-    - {fileID: 11405026, guid: 5d8268a2f77bb1c47a21b27f2e74525a, type: 2}
-    - {fileID: 11405026, guid: 5d8268a2f77bb1c47a21b27f2e74525a, type: 2}
-    InnerDelay: 0.2
+  startDelay: 1
+  generateInfiniteLevel: 0
+  outerDelayIfGenerated: 2
+  level:
+  - Name: W
+    DelayAfter: 1
+  - Name: R(NJW)
+    DelayAfter: 1
+  - Name: R(NJW)
+    DelayAfter: 1
+  - Name: R(NJW)
+    DelayAfter: 1.5
+  - Name: R(NJW)
+    DelayAfter: 1.5
+  - Name: R(NJW)
+    DelayAfter: 0.7
+  - Name: R(NJW)
+    DelayAfter: 1
+  - Name: R(NJW)
+    DelayAfter: 1
+  camHandler: {fileID: 0}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

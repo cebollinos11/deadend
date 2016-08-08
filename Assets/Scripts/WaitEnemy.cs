@@ -31,7 +31,7 @@ public class WaitEnemy : Enemy {
                 waitStart = Time.time;
                 anim.SetBool("Wait", true);
                 AudioManager.PlayClip(chargesound);
-                GetComponent<SpriteRenderer>().color = Color.white;
+                //GetComponent<SpriteRenderer>().color = Color.white;
             }
         } else {
             // Wait for waitTime seconds

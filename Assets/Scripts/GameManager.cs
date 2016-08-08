@@ -75,6 +75,7 @@ public class GameManager : MonoBehaviour {
     }
 
     private void HandlePlayerDeath() {
+        StopAllCoroutines(); // added by pablo to prevent player from winning just after being hit by the last enemy with low end-delay
         StopSendingEnemies();
         StopAllEnemies();
         StartCoroutine(Restart());
@@ -88,6 +89,7 @@ public class GameManager : MonoBehaviour {
         Enemy[] e = GameObject.FindObjectsOfType<Enemy>();
         for (int i = 0; i < e.Length; i++) {
             e[i].enabled = false;
+            //e[i].GetComponent<Animator>().speed = 0f;
         }
     }
 
@@ -125,7 +127,7 @@ public class GameManager : MonoBehaviour {
         //current scene number as int
         int i = int.Parse(currentScene.name);
         //load next scene
-        SceneManager.LoadScene((i + 1).ToString());
+        SceneManager.LoadScene(i);
     }
 
     IEnumerator LevelTransitionRoutine()

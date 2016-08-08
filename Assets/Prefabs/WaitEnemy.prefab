@@ -92,6 +92,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d352c8205f63e1f4b86df641f08678d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hasKilledThePlayer: 0
   hitSprite: {fileID: 21300000, guid: 420f83ef6e794b543bac54ccf3366715, type: 3}
   perfectMin: 0
   perfectMax: 0.5
