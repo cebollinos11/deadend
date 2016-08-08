@@ -140,6 +140,12 @@ public class GameManager : MonoBehaviour {
         //startPlayerWinAnimation
         player.GetComponent<Animator>().enabled = true;
 
+        /*
+        yield return new WaitForSeconds(1f);
+        AudioManager.PlayClip(AudioManager.Instance.hammerDown);
+        //camHandler.PlayBump();
+        GameObject.FindObjectOfType<LevelCleared>().GetComponent<Text>().enabled = true;
+        */
         //load next Scene
         yield return new WaitForSeconds(delayLoadNextScene);
         LoadNextLevel();
