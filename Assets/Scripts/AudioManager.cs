@@ -14,6 +14,7 @@ public class AudioManager : Singleton<AudioManager>
     public AudioClip swing;
     public AudioClip playerGetHit;
     public AudioClip hammerDown;
+    public AudioClip coin;
 
     public static void PlayClip(AudioClip aClip)
     {

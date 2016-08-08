@@ -157,6 +157,12 @@ public class Player : MonoBehaviour {
         AudioManager.PlayClip(AudioManager.Instance.swing);
     }
 
+    public void PlayCoinSFX()
+    {
+        AudioManager.PlayClip(AudioManager.Instance.coin);
+    }
+
+
     
 	
 	// Update is called once per frame
