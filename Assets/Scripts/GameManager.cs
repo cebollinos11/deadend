@@ -137,6 +137,9 @@ public class GameManager : MonoBehaviour {
         yield return new WaitForSeconds(delayStartTransition);
         camHandler.zoomTo(player.transform.position);
 
+        //startPlayerWinAnimation
+        player.GetComponent<Animator>().enabled = true;
+
         //load next Scene
         yield return new WaitForSeconds(delayLoadNextScene);
         LoadNextLevel();

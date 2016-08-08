@@ -151,6 +151,13 @@ public class Player : MonoBehaviour {
         
 
     }
+
+    public void PlaySwingSFX()
+    {
+        AudioManager.PlayClip(AudioManager.Instance.swing);
+    }
+
+    
 	
 	// Update is called once per frame
 	void Update () {
