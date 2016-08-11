@@ -110,7 +110,7 @@ public class Enemy : AbstractEnemy {
             rb.isKinematic = true;
             anim.SetBool("Attack", true);
             hasKilledThePlayer = true;
-            Debug.Log(gameObject.name + " has killed the player with hasDied = "+hasDied.ToString());
+            //Debug.Log(gameObject.name + " has killed the player with hasDied = "+hasDied.ToString());
         }
 
 

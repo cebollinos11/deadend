@@ -93,7 +93,7 @@ public class Player : MonoBehaviour {
 
     public void GetStunned()
     {
-        Debug.Log("Player stunned");
+        //Debug.Log("Player stunned");
         sr.sprite = s_hitFloor;
         StartCoroutine(StunShake());
         this.enabled = false;
@@ -180,9 +180,14 @@ public class Player : MonoBehaviour {
 				idleAnimCount = 0f;
 			}
 
+            
 
 			if (InputManager.State == InputManager.InputState.ButtonDown || 
-                InputManager.State == InputManager.InputState.Button) {
+                InputManager.State == InputManager.InputState.Button||
+                Input.GetKeyDown(KeyCode.Space) ||
+                Input.GetKey(KeyCode.Space) ||
+                Input.GetKeyDown(KeyCode.M))
+            {
 				SetSprite(s_chargejump);
 				state = PlayerState.ChargeJump;
                 ChargeStart = Time.time;
@@ -200,7 +205,9 @@ public class Player : MonoBehaviour {
             } else {
                 HasCharged = false;
             }
-            if (InputManager.State == InputManager.InputState.ButtonUp) {
+            if (InputManager.State == InputManager.InputState.ButtonUp ||
+                Input.GetKeyUp(KeyCode.Space) ||
+                Input.GetKeyUp(KeyCode.M)) {
                 JumpParticles.Play();
                 jumptimer = 0f;
                 SetSprite(s_jumpUp);

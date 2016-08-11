@@ -82,7 +82,7 @@ public class HammerEnemy : Enemy {
         {
             if(transform.position.x < StompDistance) {
                 anim.SetTrigger("HammerDown");
-                Debug.Log("Call to stomp");
+                //Debug.Log("Call to stomp");
                 hasStomped = true;
             } else {
                 transform.position += new Vector3(- moveSpeed * Time.deltaTime, 0f, 0f);

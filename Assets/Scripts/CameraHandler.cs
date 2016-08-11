@@ -81,7 +81,7 @@ public class CameraHandler : MonoBehaviour {
     
     }
     public void zoomTo(Vector2 targetPos) {
-        Debug.Log("Going to "+targetPos.ToString());
+        //Debug.Log("Going to "+targetPos.ToString());
         followPlayer = false;
         StartCoroutine(ZoomToPosition(targetPos));
     }
