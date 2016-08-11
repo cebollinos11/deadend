@@ -1,0 +1,13 @@
+Leon:
+
+
+Whoah, nice! A bunch of things:
+Score display should be a different color than the sun/sky/background. Also it is an important measure of feedback and should be much more prominent. Also, if you distinguishing between certain degrees of perfection, while dodging, make the perfect doges count for more points, or maybe, let perfect dodges add to a special meter upon whose completeness the player can execute a special move. Also, I noticed that some enemies trigger a perfect upon jumping even when they kill you anyway, others never trigger it. This should be consistent throughout all enemy types.
+
+Instead of having a multi pattern attack where a stun is followed by an immediate second attack that is going to kill you anyway if you got hit by the stun, just let the stun attack kill right away, so you don't have to wait for the inevitable and get right back in there (think of it like in hotline miami or super meatboy, where events just go like bam, bam, bam). If you are using stun, there should be wiggle room for the player to react anyway, although with a much much lower amount of time at their disposal. Otherwise stuns are just frustrating. 
+
+Some of the different characters look a lot alike and are hard to distinguish. That can be frustrating at times, although one does get used to it over time.
+
+Add ninja screams!
+
+Also, with the level structure of the game, it becomes a test of how well you can memorise the layout. You are certainly aware of that and will probably have your reasons why you don't want to make it procedural, but I wanted to point it out anyway.^^
