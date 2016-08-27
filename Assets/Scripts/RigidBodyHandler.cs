@@ -11,7 +11,7 @@ public class RigidBodyHandler : MonoBehaviour {
         rb = GetComponent<Rigidbody2D>();
         rb.isKinematic = true;
 	}
-    void GetHit()
+    public void GetHit()
     {
         if (hero.CheckIfHit())
             return;

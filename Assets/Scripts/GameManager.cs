@@ -42,6 +42,8 @@ public class GameManager : MonoBehaviour {
 
     [HideInInspector]public CameraHandler camHandler;
 
+    public bool BossLevel;
+
     // Use this for initialization
     void Start() {
 
@@ -62,7 +64,8 @@ public class GameManager : MonoBehaviour {
             return;
         }
 
-        StartCoroutine(Game());
+        if (!BossLevel)
+            StartCoroutine(Game());
     }
 
     public void CallPerfect() {
