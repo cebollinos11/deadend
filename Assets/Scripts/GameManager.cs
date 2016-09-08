@@ -43,11 +43,47 @@ public class GameManager : MonoBehaviour {
     [HideInInspector]public CameraHandler camHandler;
 
     public bool BossLevel;
+    [HideInInspector]
+    public GameStatus GS;
+
+    [HideInInspector]
+    public CanvasManager UImanager;
+    [HideInInspector]
+    public HighScoreManager HSmanager;
+
+    void Awake()
+    {
+        //initialize gamestatus
+
+        GameObject go = GameObject.Find("GameStatus");
+
+        if(go == null)
+        {
+            //create new
+
+            GameObject gameStatus = new GameObject("GameStatus");
+            DontDestroyOnLoad(gameStatus);
+            GS = gameStatus.AddComponent<GameStatus>();
+            GS.Init();
+        }
+
+        else
+        {
+            GS = GameObject.FindObjectOfType<GameStatus>();
+        }
+
+
+
+
+        GS.OnLoadScene();
+    }
 
     // Use this for initialization
     void Start() {
-
+        
         camHandler = GameObject.FindObjectOfType<CameraHandler>();
+        UImanager = GameObject.FindObjectOfType<CanvasManager>();
+        HSmanager = GameObject.FindObjectOfType<HighScoreManager>();
         score = 0;
         Time.timeScale = 1f;
         sendEnemies = true;
@@ -64,6 +100,9 @@ public class GameManager : MonoBehaviour {
             return;
         }
 
+
+        UImanager.UpdateUI();
+
         if (!BossLevel)
             StartCoroutine(Game());
     }
@@ -73,15 +112,44 @@ public class GameManager : MonoBehaviour {
     }
 
     public void IncreaseScore(int i) {
+        HSmanager.AddScore();
         score += i;
         ScoreUI.text = score.ToString();
+    }
+
+    void CallShowGameOver()
+    {
+        //SHOW GAME OVER SCREEN
+        UImanager.ShowGameOver();
+        //DESTROY GS
+        Destroy(GS.gameObject);
     }
 
     private void HandlePlayerDeath() {
         StopAllCoroutines(); // added by pablo to prevent player from winning just after being hit by the last enemy with low end-delay
         StopSendingEnemies();
         StopAllEnemies();
-        StartCoroutine(Restart());
+
+        GS.lives--;
+
+        if(GS.lives<0)
+        {
+            // GAME OVER
+
+
+            Invoke("CallShowGameOver", 1f);
+            
+
+        }
+
+        else
+        {
+            UImanager.UpdateUI();
+            StartCoroutine(Restart());
+        }
+        
+
+        
     }
 
     private void StopSendingEnemies() {
@@ -115,6 +183,7 @@ public class GameManager : MonoBehaviour {
         // Grant perfect?
         if(enemy.EvaluatePerformance()) {
             DisplayPerfect();
+            HSmanager.AddPerfect();
         }
     }
 
@@ -133,6 +202,8 @@ public class GameManager : MonoBehaviour {
         SceneManager.LoadScene(i);
     }
 
+    
+
     IEnumerator LevelTransitionRoutine()
     {
 
@@ -145,13 +216,16 @@ public class GameManager : MonoBehaviour {
         //startPlayerWinAnimation
         player.GetComponent<Animator>().enabled = true;
 
-        /*
+        //handle highscore
         yield return new WaitForSeconds(1f);
-        AudioManager.PlayClip(AudioManager.Instance.hammerDown);
-        //camHandler.PlayBump();
-        GameObject.FindObjectOfType<LevelCleared>().GetComponent<Text>().enabled = true;
-        */
+        HSmanager.CalculateScoresAfterWinningLevel();
+
+        UImanager.ShowLevelFinishedPanel();
+        yield return new WaitForSeconds(3f);
+        
         //load next Scene
+
+
         yield return new WaitForSeconds(delayLoadNextScene);
         LoadNextLevel();
         

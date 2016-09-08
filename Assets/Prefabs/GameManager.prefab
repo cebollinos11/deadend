@@ -10,6 +10,7 @@ GameObject:
   - 4: {fileID: 444996}
   - 114: {fileID: 11412168}
   - 114: {fileID: 114000014006021170}
+  - 114: {fileID: 114000013001970198}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -50,23 +51,21 @@ MonoBehaviour:
   generateInfiniteLevel: 0
   outerDelayIfGenerated: 2
   level:
-  - Name: W
+  - Name: N
+    DelayAfter: 2
+  - Name: N
+    DelayAfter: 2
+  - Name: N
+    DelayAfter: 2
+  - Name: J
     DelayAfter: 1
-  - Name: R(NJW)
-    DelayAfter: 1
-  - Name: R(NJW)
-    DelayAfter: 1
-  - Name: R(NJW)
-    DelayAfter: 1.5
-  - Name: R(NJW)
-    DelayAfter: 1.5
-  - Name: R(NJW)
-    DelayAfter: 0.7
-  - Name: R(NJW)
-    DelayAfter: 1
-  - Name: R(NJW)
-    DelayAfter: 1
+  - Name: N
+    DelayAfter: 2
   camHandler: {fileID: 0}
+  BossLevel: 0
+  GS: {fileID: 0}
+  UImanager: {fileID: 0}
+  HSmanager: {fileID: 0}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
@@ -106,6 +105,24 @@ Transform:
   m_Children: []
   m_Father: {fileID: 444996}
   m_RootOrder: 0
+--- !u!114 &114000013001970198
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 155392}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d379f8503fdb0db41bb42cb960665c52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thisLevelScore: 0
+  accumulatedScore: 0
+  Nperfects: 0
+  LivesLeft: 0
+  BonusPerfects: 0
+  BonusLives: 0
+  totalScore: 0
 --- !u!114 &114000014006021170
 MonoBehaviour:
   m_ObjectHideFlags: 1
