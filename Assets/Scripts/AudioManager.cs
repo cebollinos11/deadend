@@ -56,12 +56,7 @@ public class AudioManager : Singleton<AudioManager>
 
     }
 
-    void Update()
-    {
-
-     
-
-    }
+   
 
 
 
