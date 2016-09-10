@@ -134,11 +134,7 @@ public class GameManager : MonoBehaviour {
         if(GS.lives<1)
         {
             // GAME OVER
-            
-            
-            Invoke("CallShowGameOver", 1f);
-            
-
+            StartCoroutine(GameOver());
         }
 
         else
@@ -151,6 +147,14 @@ public class GameManager : MonoBehaviour {
         
     }
 
+
+    private IEnumerator GameOver() {
+        yield return new WaitForSeconds(1.0f);
+        CallShowGameOver();
+        yield return new WaitForSeconds(1.0f);
+        yield return new WaitUntil(() => InputManager.State == InputManager.InputState.ButtonDown);
+        SceneManager.LoadScene(0);
+    }
     private void StopSendingEnemies() {
         sendEnemies = false;
     }
