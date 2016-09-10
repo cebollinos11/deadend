@@ -119,7 +119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97601113f00bf4149b7c1a62e42de9fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minChargeTime: 0.1
+  minChargeTime: 0.05
   jumpCurve:
     serializedVersion: 2
     m_Curve:

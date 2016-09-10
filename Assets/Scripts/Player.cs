@@ -51,6 +51,9 @@ public class Player : MonoBehaviour {
     SpriteRenderer sr;
     public event System.Action OnDeath;
 
+
+    float releaseTimer;
+
     
 
 
@@ -191,6 +194,7 @@ public class Player : MonoBehaviour {
 				SetSprite(s_chargejump);
 				state = PlayerState.ChargeJump;
                 ChargeStart = Time.time;
+
             }
         }
 
@@ -199,13 +203,15 @@ public class Player : MonoBehaviour {
 
         if (state == PlayerState.ChargeJump)
         {
+
             // Update Charged flag
             if(Time.time - ChargeStart > minChargeTime) {
                 HasCharged = true;
             } else {
                 HasCharged = false;
             }
-            if (InputManager.State == InputManager.InputState.ButtonUp ||
+            if (Time.time - ChargeStart > minChargeTime ||
+                InputManager.State == InputManager.InputState.ButtonUp ||
                 Input.GetKeyUp(KeyCode.Space) ||
                 Input.GetKeyUp(KeyCode.M)) {
                 JumpParticles.Play();
