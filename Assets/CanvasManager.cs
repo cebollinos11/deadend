@@ -39,7 +39,7 @@ public class CanvasManager : MonoBehaviour {
 
     public void ShowGameOver()
     {
-        totalHighScore.text = ( gm.HSmanager.thisLevelScore + gm.GS.accumulatedScore).ToString();
+        totalHighScore.text = ( gm.HSmanager.thisLevelScore + gm.GS.accumulatedScore + gm.HSmanager.Nperfects*6).ToString();
         //UpdateUI();
         GameOver.SetActive(true);
     }
