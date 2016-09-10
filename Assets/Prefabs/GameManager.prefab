@@ -11,6 +11,7 @@ GameObject:
   - 114: {fileID: 11412168}
   - 114: {fileID: 114000014006021170}
   - 114: {fileID: 114000013001970198}
+  - 114: {fileID: 114000012981041890}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -29,6 +30,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
+  - {fileID: 4000013881403604}
   - {fileID: 4000011207018968}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -44,7 +46,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PerfectText: {fileID: 128186, guid: de1a446339fcd7c44a6f52f89fbd5217, type: 2}
-  ScoreUI: {fileID: 0}
   spawnPoint: {fileID: 4000011207018968}
   perfectClip: {fileID: 8300000, guid: 702e9938079ef574d9dead3e6c8e2b50, type: 3}
   startDelay: 1
@@ -77,6 +78,21 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 155392}
   m_IsPrefabParent: 1
+--- !u!1 &1000013801719062
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 4000013881403604}
+  m_Layer: 0
+  m_Name: HeartsStartPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1000014229205768
 GameObject:
   m_ObjectHideFlags: 0
@@ -104,7 +120,35 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 444996}
+  m_RootOrder: 1
+--- !u!4 &4000013881403604
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000013801719062}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -1.729, y: 0.893, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 444996}
   m_RootOrder: 0
+--- !u!114 &114000012981041890
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 155392}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e293c042e5576e440bbcb3ac5c921edc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FullHeart: {fileID: 1000010864260782, guid: ba562cb1ed729a34796e89300f19c87a, type: 2}
+  EmptyHeart: {fileID: 1000013878086108, guid: 2cb15fdf8013ea8498c299d7eb214141, type: 2}
+  StartPoint: {fileID: 4000013881403604}
+  distance: 0.15
 --- !u!114 &114000013001970198
 MonoBehaviour:
   m_ObjectHideFlags: 1
