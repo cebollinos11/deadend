@@ -7,6 +7,8 @@ public class InputManager : MonoBehaviour {
     public static event InputHandler OnButton;
     public static event InputHandler OnButtonUp;
 
+    public KeyCode Key = KeyCode.E;
+
     public enum InputState {
         Default,
         ButtonDown,
@@ -44,17 +46,17 @@ public class InputManager : MonoBehaviour {
                 State = InputState.Default;
             }       
         } else {
-            if (Input.GetKeyDown(KeyCode.Space)) {
+            if (Input.GetKeyDown(Key)) {
                 if (OnButtonDown != null) {
                     OnButtonDown();
                 }
                 State = InputState.ButtonDown;
-            } else if (Input.GetKey(KeyCode.Space)) {
+            } else if (Input.GetKey(Key)) {
                 if (OnButtonDown != null) {
                     OnButton();
                 }
                 State = InputState.Button;
-            } else if (Input.GetKeyUp(KeyCode.Space)) {
+            } else if (Input.GetKeyUp(Key)) {
                 if (OnButtonDown != null) {
                     OnButtonUp();
                 }
