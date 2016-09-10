@@ -212,8 +212,6 @@ public class Player : MonoBehaviour {
                 HasCharged = false;
             }
 
-            Debug.Log("jump");
-            Debug.Log(Time.time - ChargeStart > minChargeTime);
 
 
             if (Time.time - ChargeStart > minChargeTime ||

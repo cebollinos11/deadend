@@ -24,7 +24,7 @@ public class HammerEnemy : Enemy {
                 }
                 if (waitAnim != null) {
                     waitTime = waitAnim.length;
-                    Debug.Log(WaitTime);
+                    //Debug.Log(WaitTime);
                 }
             }
             return waitTime.Value;
@@ -48,7 +48,7 @@ public class HammerEnemy : Enemy {
     {
         anim.ResetTrigger("HammerDown");
 
-        Debug.Log("Called to stop");
+        //Debug.Log("Called to stop");
     }
 
     public void ResumeAttack() {
