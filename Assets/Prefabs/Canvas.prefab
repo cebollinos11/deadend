@@ -144,7 +144,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1000011072635226
 GameObject:
   m_ObjectHideFlags: 1
@@ -878,7 +878,7 @@ MonoBehaviour:
   livesbonusval: {fileID: 114000010054068608}
   perfectbonusval: {fileID: 114000010025499258}
   ninjasdodgedval: {fileID: 114000012795711238}
-  totalhighscoreval: {fileID: 0}
+  totalhighscoreval: {fileID: 114000010762781688}
   accumulatedHSval: {fileID: 114000011404070312}
   GameOver: {fileID: 1000013366866406}
   LevelFinished: {fileID: 1000010971496024}

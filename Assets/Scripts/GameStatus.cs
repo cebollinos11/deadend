@@ -23,14 +23,8 @@ public class GameStatus : MonoBehaviour {
         //check if this is the first time loading this scene
         if(currentScene != SceneManager.GetActiveScene().name)
         {
-            Debug.Log("NEW SCENE");
             currentScene = SceneManager.GetActiveScene().name;
             lives = 5;
-        }
-
-        else
-        {
-            Debug.Log("REVISITING SCENE");
         }
     }
 }
