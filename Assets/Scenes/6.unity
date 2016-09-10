@@ -363,7 +363,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11412168, guid: fbd5f5bf347b384479565c25b62c84c1, type: 2}
       propertyPath: level.Array.data[6].DelayAfter
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 11412168, guid: fbd5f5bf347b384479565c25b62c84c1, type: 2}
       propertyPath: level.Array.data[4].Name
@@ -371,7 +371,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11412168, guid: fbd5f5bf347b384479565c25b62c84c1, type: 2}
       propertyPath: level.Array.data[2].DelayAfter
-      value: 1
+      value: 0.7
       objectReference: {fileID: 0}
     - target: {fileID: 11412168, guid: fbd5f5bf347b384479565c25b62c84c1, type: 2}
       propertyPath: level.Array.data[1].DelayAfter
@@ -384,6 +384,10 @@ Prefab:
     - target: {fileID: 11412168, guid: fbd5f5bf347b384479565c25b62c84c1, type: 2}
       propertyPath: level.Array.data[4].DelayAfter
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11412168, guid: fbd5f5bf347b384479565c25b62c84c1, type: 2}
+      propertyPath: level.Array.data[3].DelayAfter
+      value: 0.7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: fbd5f5bf347b384479565c25b62c84c1, type: 2}

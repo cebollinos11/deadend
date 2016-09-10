@@ -359,7 +359,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11412168, guid: fbd5f5bf347b384479565c25b62c84c1, type: 2}
       propertyPath: level.Array.data[2].DelayAfter
-      value: 1
+      value: 0.7
       objectReference: {fileID: 0}
     - target: {fileID: 11412168, guid: fbd5f5bf347b384479565c25b62c84c1, type: 2}
       propertyPath: level.Array.data[3].Name
@@ -367,7 +367,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11412168, guid: fbd5f5bf347b384479565c25b62c84c1, type: 2}
       propertyPath: level.Array.data[3].DelayAfter
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 11412168, guid: fbd5f5bf347b384479565c25b62c84c1, type: 2}
       propertyPath: level.Array.data[4].Name
@@ -375,7 +375,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11412168, guid: fbd5f5bf347b384479565c25b62c84c1, type: 2}
       propertyPath: level.Array.data[4].DelayAfter
-      value: 1
+      value: 0.7
       objectReference: {fileID: 0}
     - target: {fileID: 11412168, guid: fbd5f5bf347b384479565c25b62c84c1, type: 2}
       propertyPath: level.Array.data[5].Name
@@ -383,15 +383,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11412168, guid: fbd5f5bf347b384479565c25b62c84c1, type: 2}
       propertyPath: level.Array.data[5].DelayAfter
-      value: 1
+      value: 0.7
       objectReference: {fileID: 0}
     - target: {fileID: 11412168, guid: fbd5f5bf347b384479565c25b62c84c1, type: 2}
       propertyPath: level.Array.data[6].Name
-      value: R(NJWH)
+      value: W
       objectReference: {fileID: 0}
     - target: {fileID: 11412168, guid: fbd5f5bf347b384479565c25b62c84c1, type: 2}
       propertyPath: level.Array.data[6].DelayAfter
-      value: 1
+      value: 0.7
       objectReference: {fileID: 0}
     - target: {fileID: 11412168, guid: fbd5f5bf347b384479565c25b62c84c1, type: 2}
       propertyPath: level.Array.data[7].Name
