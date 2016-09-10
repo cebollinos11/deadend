@@ -352,7 +352,7 @@ Prefab:
     - target: {fileID: 11412168, guid: fbd5f5bf347b384479565c25b62c84c1, type: 2}
       propertyPath: ScoreUI
       value: 
-      objectReference: {fileID: 2103927034}
+      objectReference: {fileID: 0}
     - target: {fileID: 11412168, guid: fbd5f5bf347b384479565c25b62c84c1, type: 2}
       propertyPath: groupSpawnChance
       value: 100
@@ -616,7 +616,7 @@ Prefab:
     - target: {fileID: 212000014199320908, guid: ebc95ba1d544a014db9219f843edb5ed,
         type: 2}
       propertyPath: m_Color.g
-      value: 0.66185415
+      value: 0.3448514
       objectReference: {fileID: 0}
     - target: {fileID: 212000014199320908, guid: ebc95ba1d544a014db9219f843edb5ed,
         type: 2}
@@ -637,6 +637,16 @@ Prefab:
         type: 2}
       propertyPath: m_Color.b
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 212000014199320908, guid: ebc95ba1d544a014db9219f843edb5ed,
+        type: 2}
+      propertyPath: m_FlipX
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 212000014199320908, guid: ebc95ba1d544a014db9219f843edb5ed,
+        type: 2}
+      propertyPath: m_FlipY
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ebc95ba1d544a014db9219f843edb5ed, type: 2}
@@ -738,12 +748,10 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1000010971496024, guid: 9905f85627914cc4490a09622685c765, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9905f85627914cc4490a09622685c765, type: 2}
   m_IsPrefabParent: 0
---- !u!114 &2103927034 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 114000012004032546, guid: 9905f85627914cc4490a09622685c765,
-    type: 2}
-  m_PrefabInternal: {fileID: 1588971265}
-  m_Script: {fileID: 708705254, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
