@@ -8,16 +8,18 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Menu.unity
   - enabled: 1
-    path: Assets/Scenes/1.unity
+    path: Assets/Scenes/old/1.unity
   - enabled: 1
-    path: Assets/Scenes/2.unity
+    path: Assets/Scenes/old/2.unity
   - enabled: 1
-    path: Assets/Scenes/3.unity
+    path: Assets/Scenes/old/3.unity
+  - enabled: 0
+    path: Assets/Scenes/old/4.unity
   - enabled: 1
     path: Assets/Scenes/4.unity
   - enabled: 1
-    path: Assets/Scenes/5.unity
+    path: Assets/Scenes/old/5.unity
   - enabled: 1
-    path: Assets/Scenes/6.unity
+    path: Assets/Scenes/old/6.unity
   - enabled: 1
     path: Assets/Scenes/Endless.unity
