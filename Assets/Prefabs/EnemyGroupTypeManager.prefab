@@ -246,14 +246,14 @@ MonoBehaviour:
     - {fileID: 11475128, guid: 0e8117877f74b6c48a5dbef1a721b8f6, type: 2}
     - {fileID: 11431028, guid: 881cadf9dfafcba4a9e33a219fe4a951, type: 2}
     InnerDelay: 0.15
-  - Name: HR
+  - Name: HJ
     IsRandom: 0
     AmountIfRandom: 1
     Enemies:
     - {fileID: 11431028, guid: 881cadf9dfafcba4a9e33a219fe4a951, type: 2}
     - {fileID: 11499706, guid: c22e9b3a171d7294bb22e9a9bbf14a06, type: 2}
     InnerDelay: 0.15
-  - Name: HRB
+  - Name: HJN
     IsRandom: 0
     AmountIfRandom: 1
     Enemies:
@@ -261,7 +261,7 @@ MonoBehaviour:
     - {fileID: 11499706, guid: c22e9b3a171d7294bb22e9a9bbf14a06, type: 2}
     - {fileID: 11405026, guid: 5d8268a2f77bb1c47a21b27f2e74525a, type: 2}
     InnerDelay: 0.15
-  - Name: BHR
+  - Name: NHJ
     IsRandom: 0
     AmountIfRandom: 1
     Enemies:
@@ -269,7 +269,7 @@ MonoBehaviour:
     - {fileID: 11431028, guid: 881cadf9dfafcba4a9e33a219fe4a951, type: 2}
     - {fileID: 11499706, guid: c22e9b3a171d7294bb22e9a9bbf14a06, type: 2}
     InnerDelay: 0.15
-  - Name: HHR
+  - Name: HHJ
     IsRandom: 0
     AmountIfRandom: 1
     Enemies:
@@ -295,4 +295,13 @@ MonoBehaviour:
     Enemies:
     - {fileID: 11499706, guid: c22e9b3a171d7294bb22e9a9bbf14a06, type: 2}
     - {fileID: 11405026, guid: 5d8268a2f77bb1c47a21b27f2e74525a, type: 2}
+    InnerDelay: 0.15
+  - Name: WNWH
+    IsRandom: 0
+    AmountIfRandom: 1
+    Enemies:
+    - {fileID: 11475128, guid: 0e8117877f74b6c48a5dbef1a721b8f6, type: 2}
+    - {fileID: 11405026, guid: 5d8268a2f77bb1c47a21b27f2e74525a, type: 2}
+    - {fileID: 11475128, guid: 0e8117877f74b6c48a5dbef1a721b8f6, type: 2}
+    - {fileID: 11431028, guid: 881cadf9dfafcba4a9e33a219fe4a951, type: 2}
     InnerDelay: 0.15

@@ -196,7 +196,7 @@ public class GameManager : MonoBehaviour {
     {
         Scene currentScene = SceneManager.GetActiveScene();
         //current scene number as int
-        int i = int.Parse(currentScene.name);
+        int i = currentScene.buildIndex + 1;
         //load next scene
         SceneManager.LoadScene(i);
     }
