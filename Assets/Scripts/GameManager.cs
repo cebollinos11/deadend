@@ -222,12 +222,12 @@ public class GameManager : MonoBehaviour {
         HSmanager.CalculateScoresAfterWinningLevel();
 
         UImanager.ShowLevelFinishedPanel();
-        yield return new WaitForSeconds(3f);
-        
+        yield return new WaitForSeconds(1f);
+        yield return new WaitUntil(() => InputManager.State == InputManager.InputState.ButtonDown);
         //load next Scene
 
 
-        yield return new WaitForSeconds(delayLoadNextScene);
+        //yield return new WaitForSeconds(delayLoadNextScene);
         LoadNextLevel();
         
     }
