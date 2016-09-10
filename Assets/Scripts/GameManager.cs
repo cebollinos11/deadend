@@ -62,7 +62,6 @@ public class GameManager : MonoBehaviour {
             GameObject gameStatus = new GameObject("GameStatus");
             DontDestroyOnLoad(gameStatus);
             GS = gameStatus.AddComponent<GameStatus>();
-            GS.gameObject.AddComponent<Reset>();
             GS.Init();
         }
 
