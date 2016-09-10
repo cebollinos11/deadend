@@ -132,7 +132,7 @@ public class GameManager : MonoBehaviour {
 
         GS.lives--;
 
-        if(GS.lives<0)
+        if(GS.lives<1)
         {
             // GAME OVER
             
