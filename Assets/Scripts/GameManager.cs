@@ -250,8 +250,9 @@ public class GameManager : MonoBehaviour {
             } else {
                 // TODO
 
-                while (GameObject.FindObjectsOfType<AbstractEnemy>() != null)
+                while (GameObject.FindObjectsOfType<AbstractEnemy>().Length != 0)
                 {
+                    
                     yield return new WaitForSeconds(1f);
                 }
 
