@@ -277,3 +277,15 @@ MonoBehaviour:
     - {fileID: 11431028, guid: 881cadf9dfafcba4a9e33a219fe4a951, type: 2}
     - {fileID: 11499706, guid: c22e9b3a171d7294bb22e9a9bbf14a06, type: 2}
     InnerDelay: 0.15
+  - Name: WWWWWWW
+    IsRandom: 0
+    AmountIfRandom: 1
+    Enemies:
+    - {fileID: 11475128, guid: 0e8117877f74b6c48a5dbef1a721b8f6, type: 2}
+    - {fileID: 11475128, guid: 0e8117877f74b6c48a5dbef1a721b8f6, type: 2}
+    - {fileID: 11475128, guid: 0e8117877f74b6c48a5dbef1a721b8f6, type: 2}
+    - {fileID: 11475128, guid: 0e8117877f74b6c48a5dbef1a721b8f6, type: 2}
+    - {fileID: 11475128, guid: 0e8117877f74b6c48a5dbef1a721b8f6, type: 2}
+    - {fileID: 11475128, guid: 0e8117877f74b6c48a5dbef1a721b8f6, type: 2}
+    - {fileID: 11475128, guid: 0e8117877f74b6c48a5dbef1a721b8f6, type: 2}
+    InnerDelay: 0.15
