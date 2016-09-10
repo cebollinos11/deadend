@@ -208,6 +208,8 @@ public class GameManager : MonoBehaviour {
 
         float delayStartTransition = 1f;
         float delayLoadNextScene = 3f;
+
+        player.disabledJump = true;
         //zoom in to player
         yield return new WaitForSeconds(delayStartTransition);
         camHandler.zoomTo(player.transform.position);

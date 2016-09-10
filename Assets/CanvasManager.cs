@@ -47,6 +47,7 @@ public class CanvasManager : MonoBehaviour {
     {
 
         float pause = 0.5f;
+        //gm.camHandler.PlayBump();
 
         AudioClip hit1 = AudioManager.Instance.swing;
 
@@ -78,7 +79,7 @@ public class CanvasManager : MonoBehaviour {
         AudioManager.PlayClip(AudioManager.Instance.coin);
         totalhighscoreval.gameObject.SetActive(true);
 
-        gm.camHandler.PlayBump();
+        
 
 
     }

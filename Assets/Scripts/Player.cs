@@ -53,8 +53,8 @@ public class Player : MonoBehaviour {
 
 
     float releaseTimer;
-
-    
+    [HideInInspector]
+    public bool disabledJump;
 
 
     public bool CheckIfHit() {
@@ -191,6 +191,8 @@ public class Player : MonoBehaviour {
                 Input.GetKey(KeyCode.Space) ||
                 Input.GetKeyDown(KeyCode.M))
             {
+                if (disabledJump)
+                    return;
 				SetSprite(s_chargejump);
 				state = PlayerState.ChargeJump;
                 ChargeStart = Time.time;
