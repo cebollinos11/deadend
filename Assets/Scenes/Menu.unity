@@ -249,7 +249,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 1229938021}
   - 114: {fileID: 1229938020}
-  - 114: {fileID: 1229938019}
   m_Layer: 0
   m_Name: GoToNext
   m_TagString: Untagged
@@ -257,18 +256,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1229938019
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1229938018}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 823c421f035e35b409cabf9e43b57ee5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Key: 101
 --- !u!114 &1229938020
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -281,6 +268,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   resetScene: 1
+  Key: 101
 --- !u!4 &1229938021
 Transform:
   m_ObjectHideFlags: 0

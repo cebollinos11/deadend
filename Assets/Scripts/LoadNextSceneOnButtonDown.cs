@@ -4,12 +4,11 @@ using UnityEngine.SceneManagement;
 
 public class LoadNextSceneOnButtonDown : MonoBehaviour {
     public int resetScene = 1;
-    // Use this for initialization
-    void Start () {
-        InputManager.OnButtonDown += HandleButtonDown;
-    }
+    public KeyCode Key = KeyCode.E;
 
-    private void HandleButtonDown() {
-        SceneManager.LoadScene(resetScene);
+    void Update() {
+        if(Input.GetKeyDown(Key)) {
+            SceneManager.LoadScene(resetScene);
+        }
     }
 }
