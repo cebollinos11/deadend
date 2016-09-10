@@ -249,6 +249,12 @@ public class GameManager : MonoBehaviour {
                 ++levelIndex;
             } else {
                 // TODO
+
+                while (GameObject.FindObjectsOfType<AbstractEnemy>() != null)
+                {
+                    yield return new WaitForSeconds(1f);
+                }
+
                 Debug.Log("You just beat this level!");
                 StartCoroutine(LevelTransitionRoutine());
                 
