@@ -289,3 +289,10 @@ MonoBehaviour:
     - {fileID: 11475128, guid: 0e8117877f74b6c48a5dbef1a721b8f6, type: 2}
     - {fileID: 11475128, guid: 0e8117877f74b6c48a5dbef1a721b8f6, type: 2}
     InnerDelay: 0.15
+  - Name: JN
+    IsRandom: 0
+    AmountIfRandom: 1
+    Enemies:
+    - {fileID: 11499706, guid: c22e9b3a171d7294bb22e9a9bbf14a06, type: 2}
+    - {fileID: 11405026, guid: 5d8268a2f77bb1c47a21b27f2e74525a, type: 2}
+    InnerDelay: 0.15
