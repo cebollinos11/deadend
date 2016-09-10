@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 public class CanvasManager : MonoBehaviour {
 
-    public Text lives,totalHighScore,accumulatedHS,livesbonusval,perfectbonusval,ninjasdodgedval,totalhighscoreval,accumulatedHSval;
+    public Text lives,totalHighScore,livesbonusval,perfectbonusval,ninjasdodgedval,totalhighscoreval,accumulatedHSval;
 
     public GameObject GameOver,LevelFinished;
 
@@ -28,7 +28,7 @@ public class CanvasManager : MonoBehaviour {
         totalHighScore.text = gm.GS.accumulatedScore.ToString();
 
         //for UI
-        accumulatedHS.text = "Score  "+ gm.GS.accumulatedScore.ToString();
+        //accumulatedHS.text = "Score  "+ gm.GS.accumulatedScore.ToString();
         lives.text = "Lives  " + gm.GS.lives;
 
 

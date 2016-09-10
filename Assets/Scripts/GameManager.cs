@@ -14,8 +14,6 @@ public class GameManager : MonoBehaviour {
     [SerializeField]
     private GameObject PerfectText;
     [SerializeField]
-    private Text ScoreUI;
-    [SerializeField]
     Transform spawnPoint;
     [SerializeField]
     private AudioClip perfectClip;
@@ -114,7 +112,7 @@ public class GameManager : MonoBehaviour {
     public void IncreaseScore(int i) {
         HSmanager.AddScore();
         score += i;
-        ScoreUI.text = score.ToString();
+        //ScoreUI.text = score.ToString();
     }
 
     void CallShowGameOver()
