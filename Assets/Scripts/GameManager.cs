@@ -118,6 +118,7 @@ public class GameManager : MonoBehaviour {
 
     void CallShowGameOver()
     {
+        //camHandler.GetComponent<EffectsManager>().RunDeath();
         //SHOW GAME OVER SCREEN
         UImanager.ShowGameOver();
         //DESTROY GS
@@ -134,8 +135,8 @@ public class GameManager : MonoBehaviour {
         if(GS.lives<0)
         {
             // GAME OVER
-
-
+            
+            
             Invoke("CallShowGameOver", 1f);
             
 

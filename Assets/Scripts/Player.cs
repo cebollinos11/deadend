@@ -121,7 +121,6 @@ public class Player : MonoBehaviour {
         state=PlayerState.Hit;
         SetSprite(s_gethit);
         cam.followPlayer = false;
-        //cam.GetComponent<EffectsManager>().RunDeath();
         Invoke("CameraOnKill", 0.1f);
         cam.PlayBump();
         //cam.transform.Rotate(new Vector3(0f, 0f, -2f));
@@ -212,6 +211,11 @@ public class Player : MonoBehaviour {
             } else {
                 HasCharged = false;
             }
+
+            Debug.Log("jump");
+            Debug.Log(Time.time - ChargeStart > minChargeTime);
+
+
             if (Time.time - ChargeStart > minChargeTime ||
                 InputManager.State == InputManager.InputState.ButtonUp ||
                 Input.GetKeyUp(KeyCode.Space) ||
@@ -220,7 +224,7 @@ public class Player : MonoBehaviour {
                 jumptimer = 0f;
                 SetSprite(s_jumpUp);
                 state = PlayerState.Jump;
-                //cam.PlayBump();
+                
             }
         }
 

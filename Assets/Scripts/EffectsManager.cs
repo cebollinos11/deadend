@@ -22,7 +22,7 @@ public class EffectsManager : MonoBehaviour {
 
         do
         {
-            c += Time.deltaTime;
+            c += Time.deltaTime*10f;
             float val = Sin.Evaluate(c) ;
             currentMaterial.SetFloat("_MaskAmount", val);
             yield return new WaitForEndOfFrame();
