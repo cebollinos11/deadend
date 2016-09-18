@@ -7,7 +7,7 @@ public class LoadNextSceneOnButtonDown : MonoBehaviour {
     public static KeyCode Key = KeyCode.Space;
 
     void Update() {
-        if(Input.GetKeyDown(Key)) {
+        if(Input.GetKeyDown(Key) || InputManager.State == InputManager.InputState.ButtonUp) {
             SceneManager.LoadScene(resetScene);
         }
     }

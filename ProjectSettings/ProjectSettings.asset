@@ -179,7 +179,7 @@ PlayerSettings:
   - m_BuildTarget: 
     m_Icons:
     - serializedVersion: 2
-      m_Icon: {fileID: 2800000, guid: ea52bb2cb20dd9e47ba5a0894800e64e, type: 3}
+      m_Icon: {fileID: 2800000, guid: 85bb02b255c26124295d81c3e93ee70c, type: 3}
       m_Width: 128
       m_Height: 128
   m_BuildTargetBatching:
@@ -347,7 +347,8 @@ PlayerSettings:
   psp2UseDebugIl2cppLibs: 0
   psmSplashimage: {fileID: 0}
   spritePackerPolicy: 
-  scriptingDefineSymbols: {}
+  scriptingDefineSymbols:
+    13: 
   metroPackageName: deadend
   metroPackageVersion: 
   metroCertificatePath: 

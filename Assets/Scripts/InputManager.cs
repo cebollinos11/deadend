@@ -7,7 +7,7 @@ public class InputManager : MonoBehaviour {
     public static event InputHandler OnButton;
     public static event InputHandler OnButtonUp;
 
-    public KeyCode Key = KeyCode.E;
+    public static KeyCode Key = KeyCode.Space;
 
     public enum InputState {
         Default,
