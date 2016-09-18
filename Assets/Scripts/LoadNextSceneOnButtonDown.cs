@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 
 public class LoadNextSceneOnButtonDown : MonoBehaviour {
     public int resetScene = 1;
-    public KeyCode Key = KeyCode.E;
+    public static KeyCode Key = KeyCode.Space;
 
     void Update() {
         if(Input.GetKeyDown(Key)) {
