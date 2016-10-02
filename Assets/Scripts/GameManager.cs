@@ -147,13 +147,18 @@ public class GameManager : MonoBehaviour {
         
     }
 
+    public void RestartGame()
+    {
+        SceneManager.LoadScene(0);
+    }
+
 
     private IEnumerator GameOver() {
         yield return new WaitForSeconds(1.0f);
         CallShowGameOver();
         yield return new WaitForSeconds(1.0f);
-        yield return new WaitUntil(() => InputManager.State == InputManager.InputState.ButtonDown);
-        SceneManager.LoadScene(0);
+        //yield return new WaitUntil(() => InputManager.State == InputManager.InputState.ButtonDown);
+        //SceneManager.LoadScene(0);
     }
     private void StopSendingEnemies() {
         sendEnemies = false;
