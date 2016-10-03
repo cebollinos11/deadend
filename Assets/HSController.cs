@@ -122,7 +122,22 @@ public class HSController : MonoBehaviour
             {
                 positionSet = true;
                 positionPlayerMade = i + 1;
-                PositionMade.text = positionPlayerMade.ToString()+"st";
+                switch (positionPlayerMade)
+                {
+                    case 1:
+                        PositionMade.text = positionPlayerMade.ToString() + "st";
+                        break;
+                    case 2:
+                        PositionMade.text = positionPlayerMade.ToString() + "nd";
+                        break;
+                    case 3:
+                        PositionMade.text = positionPlayerMade.ToString() + "rd";
+                        break;
+                    default:
+                        PositionMade.text = positionPlayerMade.ToString() + "th";
+                        break;
+                }
+                //PositionMade.text = positionPlayerMade.ToString()+"st";
                 positionMadeIndex = i+1;
 
                 for (int j = 5; j > -10; j--)
