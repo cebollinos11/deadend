@@ -40,8 +40,10 @@ public class CanvasManager : MonoBehaviour {
     public void ShowGameOver()
     {
         totalHighScore.text = ( gm.HSmanager.thisLevelScore + gm.GS.accumulatedScore + gm.HSmanager.Nperfects*6).ToString();
+        iTween.ShakeScale(totalHighScore.gameObject, iTween.Hash("x", 4, "y", 4, "time",0.5));
         //UpdateUI();
         GameOver.SetActive(true);
+        iTween.MoveFrom(GameOver.gameObject, iTween.Hash("islocal", true, "y", 20));
     }
 
     IEnumerator ShowLevelFinished()

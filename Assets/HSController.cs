@@ -178,17 +178,25 @@ public class HSController : MonoBehaviour
         if (AlreadyDeliveredHS == false && yourScore > lowerHS)
         {
             AlreadyDeliveredHS = true;
-            NewHSPanel.SetActive(true);
-            iTween.ShakePosition(NewHSPanel, iTween.Hash("x", 10,"y",10, "Time", 0.5f));
-            
-            AudioManager.PlayClip(AudioManager.Instance.coin);
-            
+
+            StartCoroutine(ShowNH());
            
         }
             
 
         
 
+    }
+
+    IEnumerator ShowNH()
+    {
+        yield return new WaitForSeconds(1f);
+        NewHSPanel.SetActive(true);
+        //iTween.ShakePosition(NewHSPanel, iTween.Hash("x", 10, "y", 10, "Time", 0.5f));
+        iTween.ShakeScale(NewHSPanel, iTween.Hash("x", 2, "y", 2, "time", 0.5));
+
+
+        AudioManager.PlayClip(AudioManager.Instance.coin);
     }
 
 
