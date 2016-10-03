@@ -12,12 +12,15 @@ public class HSController : MonoBehaviour
     public Text ScoresName;
     public Text ScoresPoints;
     public Text ScoresOrder;
+    public Text PositionMade;
 
     public GameObject NewHSPanel;
 
     public Text YourScore;
 
     int lowerHS;
+
+    bool AlreadyDeliveredHS;
 
     void Start()
     {
@@ -63,7 +66,9 @@ public class HSController : MonoBehaviour
             print("There was an error posting the high score: " + hs_post.error);
         }
 
-        //StartCoroutine(GetScores());
+        StartCoroutine(GetScores());
+
+        
     }
 
     // Get the scores from the MySQL DB to display in a GUIText.
@@ -93,31 +98,92 @@ public class HSController : MonoBehaviour
         ScoresOrder.text = "";
         Debug.Log(hsget.text);
 
+        int yourScore = Int32.Parse(YourScore.text);
+        int positionPlayerMade = -1;
+        int positionMadeIndex = -1;
+        bool positionSet = false;
+
         char delimiter = '@';
         string[] lines = hsget.text.Split(delimiter);
         for (int i = 0; i < lines.Length-1; i++)
         {
-            ScoresOrder.text += (i + 1).ToString() + ".\n";
+            //ScoresOrder.text += (i + 1).ToString() + ".\n";
 
             string[] entry = lines[i].Split('%');
 
             //name
-            ScoresName.text += entry[0] + '\n';
+            //ScoresName.text += entry[0] + '\n';
 
             //points
-            ScoresPoints.text += entry[1] + '\n';
+            //ScoresPoints.text += entry[1] + '\n';
             lowerHS = Int32.Parse(entry[1]);
+
+            if(positionSet==false && yourScore>lowerHS)
+            {
+                positionSet = true;
+                positionPlayerMade = i + 1;
+                PositionMade.text = positionPlayerMade.ToString()+"st";
+                positionMadeIndex = i+1;
+
+                for (int j = 5; j > -10; j--)
+                {
+                    if ((i - j) > -1 && (i - j) < lines.Length - 1)
+                    {
+                        Debug.Log("ha petado en j =" + j.ToString() + "where i-j = " + (i - j).ToString());
+                        ScoresName.text += lines[i-j].Split('%')[0] + '\n';
+                        ScoresPoints.text += lines[i-j].Split('%')[1] + '\n';
+                        ScoresOrder.text += (i-j + 1).ToString() + ".\n";
+                    }
+                }
+            }
+            //int i = 0; i < lines.Length-1
+
+            /*
+            if(positionSet==false && i+15>lines.Length)
+            {
+                Debug.Log("relleno");
+                ScoresName.text += entry[0] + '\n';
+
+                ScoresPoints.text += entry[1] + '\n';
+
+                ScoresOrder.text += (i + 1).ToString() + ".\n";
+            }
+             * */
             
 
         }
+        if (positionSet == false)
+        {
+            int i = lines.Length - 1;
+            for (int j = 15; j > 0; j--)
+            {
+                if ((i - j) > -1 )
+                {
+                    Debug.Log("Relleno");
+                    ScoresName.text += lines[i - j].Split('%')[0] + '\n';
+                    ScoresPoints.text += lines[i - j].Split('%')[1] + '\n';
+                    ScoresOrder.text += (i - j + 1).ToString() + ".\n";
+                }
+            }
+        }
+        
 
-        int yourScore = Int32.Parse(YourScore.text);
+
+        //filter display scores
+
+
+        
 
         Debug.Log("Comparing " + yourScore.ToString() + " with " + lowerHS);
-        if (yourScore > lowerHS)
+        if (AlreadyDeliveredHS == false && yourScore > lowerHS)
         {
+            AlreadyDeliveredHS = true;
             NewHSPanel.SetActive(true);
-            Debug.Log("Opening");
+            iTween.ShakePosition(NewHSPanel, iTween.Hash("x", 10,"y",10, "Time", 0.5f));
+            
+            AudioManager.PlayClip(AudioManager.Instance.coin);
+            
+           
         }
             
 
