@@ -8,7 +8,8 @@ public class SendHSButton : MonoBehaviour {
     Text EnterName, EnterValue;
 
     HSController HS;
-
+    Button button;
+    bool enabled;
     public void SendHS()
     {
         
@@ -19,10 +20,20 @@ public class SendHSButton : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         HS = GameObject.FindObjectOfType<HSController>();
+        button = GetComponent<Button>();
+        button.interactable = false;
+
 	}
 	
 	// Update is called once per frame
 	void Update () {
-	
+	    if(!enabled)
+        {
+            if(EnterName.text!="")
+            {
+                button.interactable = true;
+                enabled = true;
+            }
+        }
 	}
 }
