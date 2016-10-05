@@ -24,7 +24,7 @@ public class GameStatus : MonoBehaviour {
         if(currentScene != SceneManager.GetActiveScene().name)
         {
             currentScene = SceneManager.GetActiveScene().name;
-            lives = 5;
+            lives = 3;
         }
     }
 }

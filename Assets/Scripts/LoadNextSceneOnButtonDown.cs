@@ -17,8 +17,8 @@ public class LoadNextSceneOnButtonDown : MonoBehaviour {
 
     IEnumerator StartRoutine()
     {
-
-        iTween.ShakePosition(Camera.main.gameObject, iTween.Hash("x", 20, "y", 20, "time", 0.5));
+        GameObject.FindObjectOfType<Animator>().enabled = true;
+        
         yield return new WaitForSeconds(0.5f);
         SceneManager.LoadScene(resetScene);
     }

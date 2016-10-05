@@ -45,6 +45,8 @@ MonoBehaviour:
   playerGetHit: {fileID: 8300000, guid: fc7a9bd2ee7775142a5c4c1c9d8ed5d9, type: 3}
   hammerDown: {fileID: 8300000, guid: f5196cf448060b947943dc176fd160f8, type: 3}
   coin: {fileID: 8300000, guid: 456750cef51cbb245b5a9f591f69e202, type: 3}
+  newHS: {fileID: 8300000, guid: 1dbb8530cb68f7a4cb41ee0a89681055, type: 3}
+  tension: {fileID: 8300000, guid: 70a08b5ccc5b6454b8529080787fe0c1, type: 3}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

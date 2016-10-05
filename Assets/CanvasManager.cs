@@ -44,6 +44,8 @@ public class CanvasManager : MonoBehaviour {
         //UpdateUI();
         GameOver.SetActive(true);
         iTween.MoveFrom(GameOver.gameObject, iTween.Hash("islocal", true, "y", 20));
+        AudioManager.StopAll();
+        AudioManager.PlayClip(AudioManager.Instance.tension);
     }
 
     IEnumerator ShowLevelFinished()
@@ -81,6 +83,8 @@ public class CanvasManager : MonoBehaviour {
         yield return new WaitForSeconds(pause);
         AudioManager.PlayClip(AudioManager.Instance.coin);
         totalhighscoreval.gameObject.SetActive(true);
+        iTween.ShakeScale(totalhighscoreval.gameObject, iTween.Hash("x", 1.1, "y", 1.1, "time", 0.5));
+
 
         
 

@@ -15,6 +15,10 @@ public class AudioManager : Singleton<AudioManager>
     public AudioClip playerGetHit;
     public AudioClip hammerDown;
     public AudioClip coin;
+    public AudioClip newHS;
+    public AudioClip tension;
+
+    bool isPlayingBG;
 
     public static void PlayClip(AudioClip aClip)
     {
@@ -25,11 +29,21 @@ public class AudioManager : Singleton<AudioManager>
     public static void PlayBgSong(AudioClip bg)
     {
 
+        if (Instance.isPlayingBG)
+            return;
+
+        Instance.isPlayingBG = true;
         //Instance.mainAudioSource.PlayOneShot(Instance.backgroundSongs[i]);
         Instance.mainAudioSource.clip = bg;
         Instance.mainAudioSource.loop = true;
         Instance.mainAudioSource.Play();
 
+    }
+
+    public static void StopAll()
+    {
+        Instance.mainAudioSource.Stop();
+        Instance.isPlayingBG = false;
     }
 
 

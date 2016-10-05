@@ -211,7 +211,7 @@ public class HSController : MonoBehaviour
         iTween.ShakeScale(NewHSPanel, iTween.Hash("x", 2, "y", 2, "time", 0.5));
 
 
-        AudioManager.PlayClip(AudioManager.Instance.coin);
+        AudioManager.PlayClip(AudioManager.Instance.newHS);
     }
 
 

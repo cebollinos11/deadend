@@ -91,6 +91,7 @@ public class GameManager : MonoBehaviour {
             return;
         }
         player.OnDeath += new System.Action(HandlePlayerDeath);
+        AudioManager.PlayBgSong(AudioManager.Instance.mainSong);
 
         groupTypes = FindObjectOfType<EnemyGroupTypeManager>();
         if (groupTypes == null) {
