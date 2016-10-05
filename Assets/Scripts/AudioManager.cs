@@ -51,7 +51,7 @@ public class AudioManager : Singleton<AudioManager>
 
 
     // Use this for initialization
-    void Start()
+    void Awake()
     {
         mainAudioSource = Instance.gameObject.AddComponent<AudioSource>();
 
