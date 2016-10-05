@@ -49,7 +49,7 @@ public class CanvasManager : MonoBehaviour {
     IEnumerator ShowLevelFinished()
     {
 
-        float pause = 0.5f;
+        float pause = 0.1f;
         //gm.camHandler.PlayBump();
 
         AudioClip hit1 = AudioManager.Instance.swing;
@@ -62,7 +62,7 @@ public class CanvasManager : MonoBehaviour {
         totalhighscoreval.gameObject.SetActive(false);
         accumulatedHSval.gameObject.SetActive(false);
         
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.5f);
         AudioManager.PlayClip(hit1);
         ninjasdodgedval.gameObject.SetActive(true);
 
